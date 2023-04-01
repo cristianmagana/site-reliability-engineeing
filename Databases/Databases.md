@@ -1,6 +1,6 @@
 # SQL
 
->### CAPs Theorem
+>### CAP Theorem
 <br>
 Distributed data stores that claims, in the event of a network failure on a distributed database, it is possible to provide either consistency or availability—but not both.
 <br>

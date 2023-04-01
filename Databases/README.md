@@ -1,10 +1,21 @@
-# SQL
-
+# Databases
 >### CAP Theorem
 <br>
 Distributed data stores that claims, in the event of a network failure on a distributed database, it is possible to provide either consistency or availability—but not both.
 <br>
 <br>
+
+<b>Consistency</b> <br>
+ All the servers in the system will have the same data so users will get the same copy regardless of which server answers their request.
+
+<b>Availability</b> <br>
+ The system will always respond to a request (even if it's not the latest data or consistent across the system or just a message saying the system isn't working).
+
+<b>Partition Tolerance</b> <br>
+ The system continues to operate as a whole even if individual servers fail or can't be reached.
+
+<br>
+
 
 >### ACID 
 <br>
@@ -42,10 +53,37 @@ In BCNF if every functional dependency A → B, then A has to be the Super Key o
 
 <br>
 
-> ### Scaling Considerations
+> ### Relational Databases (SQL)
 <br>
-https://levelup.gitconnected.com/database-concerns-in-large-system-design-3f84b6331ff9
+Known for storing data in spreadsheet-like tables that have their columns and data types strictly defined. The tables can have relationships between each other and the data is queried with SQL (Structured Query Language)
 
+<br>
+
+|  |  |
+| --------        | ------ |
+| Schema          | Fixed Schema I.e. Tables and Columns are preferred |
+| Storage         |  Table (Row -> Entity, Column -> Attributes) |
+| RDBMS           | Oracle, IBM DB2, MSSQL, MySQL |
+| Query           | SQL | 
+| Scalability     |  In common situation suitable for Vertical scaling |
+| ACID Compliance | Compliant | 
+
+
+<br>
+> ### NoSQL
+<br>
+NoSQL databases (aka "not only SQL") are non-tabular databases and store data differently than relational tables. NoSQL databases come in a variety of types based on their data model. The main types are document, key-value, wide-column, and graph. They provide flexible schemas and scale easily with large amounts of data and high user loads.
+<br>
+
+|  |  |
+| --------        | ------ |
+| Schema          | Dynamic schema I.e. Can store data for entity and its attributes dynamically |
+| Storage         | Key Value, Document, Graph, Wide-column |
+| Query           | unSQL | 
+| Scalability     | In common situation suitable for Horizontal scaling |
+| ACID Compliance | Compromises ACID properties | 
+
+> ### Scaling Considerations
 <br>
 
 Transaction workloads require a normalized design while analytical workloads require a denormalized design. 

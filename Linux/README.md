@@ -42,8 +42,12 @@ When a process needs to invoke a kernel service, it invokes a procedure call in 
 
 <br>
 
-<details>
 <br>
+
+<details>
+
+<br>
+
   <summary>List of System Calls</summary>
   
 | System call | Description |

@@ -58,6 +58,7 @@ In BCNF if every functional dependency A → B, then A has to be the Super Key o
 Known for storing data in spreadsheet-like tables that have their columns and data types strictly defined. The tables can have relationships between each other and the data is queried with SQL (Structured Query Language)
 
 <br>
+<br>
 
 |  |  |
 | --------        | ------ |
@@ -76,7 +77,7 @@ Known for storing data in spreadsheet-like tables that have their columns and da
 NoSQL databases (aka "not only SQL") are non-tabular databases and store data differently than relational tables. NoSQL databases come in a variety of types based on their data model. The main types are document, key-value, wide-column, and graph. They provide flexible schemas and scale easily with large amounts of data and high user loads.
 
 <br>
-    
+<br>  
 
 |  |  |
 | --------        | ------ |

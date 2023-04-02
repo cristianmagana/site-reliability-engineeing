@@ -14,11 +14,11 @@ The core interface between a computer’s hardware and its processes. The kernel
 
 <br>The kernel has 4 jobs: <br><br>
 
-1. Memory management: Keep track of how much memory is used to store what, and where
+1. <b>Memory management:</b> Keep track of how much memory is used to store what, and where
 
-2. Process management: Determine which processes can use the central processing unit (CPU), when, and for how long
-3. Device drivers: Act as mediator/interpreter between the hardware and processes
-4. System calls and security: Receive requests for service from the processes
+2. <b>Process management:</b> Determine which processes can use the central processing unit (CPU), when, and for how long
+3. <b>Device drivers:</b> Act as mediator/interpreter between the hardware and processes
+4. <b>System calls and security:</b> Receive requests for service from the processes
 
 <br>
 

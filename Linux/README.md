@@ -31,6 +31,7 @@ The core interface between a computer’s hardware and its processes. The kernel
 The shell is an ordinary program that reads commands from the user and executes them. The fact that the shell is a user program, not part of the kernel, illustrates the power of the system call interface.
 
 <br>
+<br>
 
 
 > ### Process

@@ -88,6 +88,7 @@ When a process needs to invoke a kernel service, it invokes a procedure call in 
 A small integer representing a kernel-managed object that a process may read from or write to. A process may obtain a file descriptor by opening a file, directory, or device, or by creating a pipe, or by duplicating an existing descriptor. The file descriptor interface abstracts away the differences between files, pipes, and devices, making them all look like streams of bytes.
 
 <br>
+<br>
 
   1. fd0 = stdin <br>
   2. fd1 = stdout <br>

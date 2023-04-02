@@ -1,5 +1,8 @@
 # [based off the xv6/x86 architecture](https://pdos.csail.mit.edu/6.828/2018/xv6/book-rev11.pdf)
 
+### [UCI ICS 143A](https://www.ics.uci.edu/~aburtsev/143A/) 
+<br>
+
 > ### Interfaces
 An operating system provides services to user programs through an interface 
 
@@ -23,7 +26,9 @@ The core interface between a computer’s hardware and its processes. The kernel
 <br>
 
 > ### Shell
-The shell is an ordinary program that reads commands from the user and executes them.The fact that the shell is a user program, not part of the kernel, illustrates the power of the system call interface.
+
+<br>
+The shell is an ordinary program that reads commands from the user and executes them. The fact that the shell is a user program, not part of the kernel, illustrates the power of the system call interface.
 
 <br>
 
@@ -73,5 +78,40 @@ When a process needs to invoke a kernel service, it invokes a procedure call in 
 | link(f1, f2) |  Create another name (f2) for the file f1 | 
 | unlink(filename) | Remove a file  | 
 
-
 </details>
+
+<br>
+
+>### I/O and File descriptors
+<br>
+<b>File Descriptor</b><br>
+A small integer representing a kernel-managed object that a process may read from or write to. A process may obtain a file descriptor by opening a file, directory, or device, or by creating a pipe, or by duplicating an existing descriptor. The file descriptor interface abstracts away the differences between files, pipes, and devices, making them all look like streams of bytes.
+
+<br>
+
+  1. fd0 = stdin <br>
+  2. fd1 = stdout <br>
+  3. fd2 = stderr <br>
+
+<br>
+
+>### Pipes
+
+<br>
+
+A small kernel buffer exposed to processes as a pair of file descriptors, one for reading and one for writing. Writing data to one end of the pipe makes that data available for reading from the other end of the pipe. Pipes provide a way for processes to communicate.
+
+<br>
+
+>### File system
+
+<br>
+
+File system provides data files, which are uninterpreted byte arrays, and directories, which contain named references to data files and other directories. The directories form a tree, starting at a special directory called the root.
+
+<br>
+
+<b>Inode</b> <br>
+A file’s name is distinct from the file itself; the same underlying file, called an (index node) inode, can have multiple names, called links. The link system call creates another file
+system name referring to the same inode as an existing file. Inodes do not store actual data. Instead, they store the metadata where you can find the storage blocks of each file’s data.
+

@@ -1,6 +1,6 @@
 # [based off the xv6/x86 architecture](https://pdos.csail.mit.edu/6.828/2018/xv6/book-rev11.pdf)
 
-> ### interface design
+> ### Interfaces
 An operating system provides services to user programs through an interface 
 
 

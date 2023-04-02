@@ -6,7 +6,7 @@ An operating system provides services to user programs through an interface
 
 ![Interface](https://github.com/cristianmagana/site-reliability-engineeing/blob/master/Linux/img/interface.png)
 
-
+<br>
 > ### Kernel
 <br> 
 The core interface between a computer’s hardware and its processes. The kernel uses the CPU’s hardware protection mechanisms to ensure that each process executing in user space can access only its own memory. The kernel executes with the hardware privileges required to implement these protections; user programs execute without those privileges. When a user program invokes a system call, the hardware raises the privilege level and starts executing a pre-arranged function in the kernel. 

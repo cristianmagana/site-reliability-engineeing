@@ -70,6 +70,7 @@ Known for storing data in spreadsheet-like tables that have their columns and da
 
 
 <br>
+
 > ### NoSQL
 <br>
 NoSQL databases (aka "not only SQL") are non-tabular databases and store data differently than relational tables. NoSQL databases come in a variety of types based on their data model. The main types are document, key-value, wide-column, and graph. They provide flexible schemas and scale easily with large amounts of data and high user loads.
@@ -82,6 +83,8 @@ NoSQL databases (aka "not only SQL") are non-tabular databases and store data di
 | Query           | unSQL | 
 | Scalability     | In common situation suitable for Horizontal scaling |
 | ACID Compliance | Compromises ACID properties | 
+
+<br>
 
 > ### Scaling Considerations
 <br>

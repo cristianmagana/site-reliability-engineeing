@@ -3,8 +3,6 @@
 The STAR interview method is a technique you can use to prepare for behavioral and situational interview questions. STAR stands for situation, task, action and result. Hiring managers ask behavioral interview questions to determine whether you are the right fit for a job. This method will help you prepare clear and concise responses using real-life examples.
 
 > ### Situation
->
-> <br>
 
 When and where it took place.
 
@@ -12,23 +10,17 @@ When and where it took place.
 
 > ### Task
 
-<br>
-
 What was your role?
 
 <br>
 
 > ### Actions
 
-<br>
-
 What were your specific contributions?
 
 <br>
 
 > ### Results
-
-<br>
 
 What did you produce?
 

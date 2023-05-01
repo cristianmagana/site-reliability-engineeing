@@ -217,6 +217,8 @@ Question variations:
 - Tell me an experience that you have driven a change successfully <br>
 
  <br>
+ 
+</details>
 
  <br>
 

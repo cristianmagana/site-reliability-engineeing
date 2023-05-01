@@ -249,8 +249,6 @@ Question variations:
 </details>
 
   <br>
-  <br>
-  <br>
 
 > ### Sample behavioral interview questions
 

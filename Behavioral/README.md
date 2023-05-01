@@ -217,7 +217,7 @@ Question variations:
 - Tell me an experience that you have driven a change successfully <br>
 
  <br>
- 
+
 </details>
 
  <br>
@@ -245,6 +245,9 @@ Question variations:
 - Which leadership trait do you wish to have but you do not possess today? <br>
 
   <br>
+
+</details>
+
   <br>
   <br>
   <br>

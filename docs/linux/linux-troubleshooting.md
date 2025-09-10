@@ -3,6 +3,7 @@
 ## 1. Linux Boot Process - From Power On to Login Prompt
 
 **Boot Sequence:**
+
 1. **BIOS/UEFI** - Hardware initialization, POST (Power-On Self-Test)
 2. **Bootloader (GRUB)** - Loads kernel from disk
 3. **Kernel Initialization** - Memory management, device drivers
@@ -11,6 +12,7 @@
 6. **Display Manager** - Login prompt appears
 
 **Key Files:**
+
 - `/boot/grub/grub.cfg` - Bootloader configuration
 - `/etc/systemd/system/` - Service definitions
 - `/var/log/boot.log` - Boot messages
@@ -20,6 +22,7 @@
 ## 2. What Happens When You Type `ls`
 
 **Process Flow:**
+
 1. **Shell parsing** - `getline()` reads input, `strtok()` tokenizes
 2. **Alias check** - Shell checks if `ls` is an alias/builtin
 3. **PATH lookup** - Shell searches PATH directories for `ls` binary
@@ -37,12 +40,14 @@
 **Definition:** Data structure storing file/directory metadata
 
 **Inode contains:**
+
 - File permissions and ownership
 - File size and timestamps
 - Pointers to data blocks
 - Link count
 
 **Commands:**
+
 - `ls -i` - Show inode numbers
 - `stat filename` - Display inode information
 - `df -i` - Show inode usage
@@ -58,6 +63,7 @@
 | SIGSEGV, SIGBUS, SIGILL | Controlled shutdown |
 
 **Common crash signals:**
+
 - **SIGSEGV** - Segmentation fault
 - **SIGBUS** - Bus error  
 - **SIGILL** - Illegal instruction
@@ -71,6 +77,7 @@
 **Virtual filesystem** containing runtime system information
 
 **Key directories/files:**
+
 - `/proc/[PID]/` - Process-specific information
 - `/proc/self/` - Current process
 - `/proc/[PID]/maps` - Memory mappings
@@ -86,12 +93,14 @@
 ## 6. Filesystem Full but df Shows Space
 
 **Troubleshooting steps:**
+
 1. **Check inodes:** `df -i` (look for 0 IFree)
 2. **Check deleted files in use:** `lsof | grep deleted`
 3. **Restart processes** holding deleted files
 4. **Check for large files:** `du -sh /*`
 
 **Common causes:**
+
 - Inode exhaustion
 - Deleted files still open by processes
 - Reserved blocks for root
@@ -101,6 +110,7 @@
 ## 7. Linux Performance Tools
 
 **Essential monitoring tools:**
+
 1. **uptime** - Load averages
 2. **dmesg | tail** - Kernel messages
 3. **vmstat 1** - Virtual memory statistics
@@ -117,6 +127,7 @@
 ## 8. Linux Filesystem Types
 
 **Common filesystems:**
+
 - **EXT4** - Default Linux filesystem
 - **XFS** - High-performance journaling
 - **BTRFS** - Copy-on-write with snapshots
@@ -124,6 +135,7 @@
 - **NTFS** - Windows compatibility
 
 **Commands:**
+
 - `mount` - Show mounted filesystems
 - `lsblk` - List block devices
 - `fsck` - Filesystem check
@@ -133,16 +145,19 @@
 ## 9. Kernel Space vs User Space
 
 **User Space:**
+
 - Applications run here
 - Limited access to hardware
 - Uses system calls to access kernel
 
 **Kernel Space:**
+
 - Operating system kernel
 - Direct hardware access
 - Memory protection enforced
 
 **Communication:** System calls bridge user/kernel space
+
 **Libraries:** libc provides system call wrappers
 
 ---
@@ -150,6 +165,7 @@
 ## 10. High I/O Troubleshooting
 
 **Investigation steps:**
+
 1. **Identify source:** `iotop`, `iostat -x 1`
 2. **Check disk utilization:** `iostat -x 1` (look for %util)
 3. **Find processes:** `iotop`, `pidstat -d 1`
@@ -157,6 +173,7 @@
 5. **Analyze I/O patterns:** `blktrace`
 
 **Key metrics:**
+
 - **IOPS** - I/O operations per second
 - **Throughput** - MB/s
 - **Latency** - Response time
@@ -174,6 +191,7 @@
 | Isolated execution | Can interfere with each other |
 
 **Process Control Block (PCB)** contains:
+
 - Process ID (PID)
 - Memory pointers
 - CPU registers
@@ -184,6 +202,7 @@
 ## 12. Kernel Memory Management
 
 **Key concepts:**
+
 - **Virtual Memory** - Abstraction layer over physical memory
 - **Page Tables** - Virtual to physical address mapping
 - **Memory Zones** - DMA, Normal, HighMem
@@ -191,6 +210,7 @@
 - **Page Cache** - File system caching
 
 **Commands:**
+
 - `/proc/meminfo` - Memory statistics
 - `free -m` - Memory usage
 - `/proc/slabinfo` - Slab cache info
@@ -200,6 +220,7 @@
 ## 13. Process States
 
 **Task states:**
+
 - **TASK_RUNNING (R)** - Executing or runnable
 - **TASK_INTERRUPTIBLE (S)** - Sleeping, waiting for signal
 - **TASK_UNINTERRUPTIBLE (D)** - Deep sleep, usually I/O wait
@@ -207,6 +228,7 @@
 - **TASK_ZOMBIE (Z)** - Terminated, awaiting parent cleanup
 
 **Commands:**
+
 - `ps aux` - Show process states
 - `top` - Real-time process monitoring
 
@@ -215,6 +237,7 @@
 ## 14. Linux Concurrency and Race Conditions
 
 **Concurrency mechanisms:**
+
 - **Mutexes** - Mutual exclusion locks
 - **Semaphores** - Counting locks
 - **Spinlocks** - Busy-wait locks
@@ -237,6 +260,7 @@
 | Local variables | Dynamic allocation |
 
 **Stack:** Function calls, local variables
+
 **Heap:** Dynamic memory allocation (`malloc`, `new`)
 
 ---
@@ -244,10 +268,12 @@
 ## 16. Memory Leaks
 
 **Types:**
+
 1. **Classic leak** - Unreachable memory not freed
 2. **Semantic leak** - Reachable but unnecessary memory
 
 **Detection tools:**
+
 - `valgrind` - Memory error detector
 - `mtrace` - GNU malloc debugging
 - `AddressSanitizer` - Google's memory error detector
@@ -259,16 +285,19 @@
 ## 17. Linux Interrupt Handling
 
 **Interrupt processing:**
+
 1. **Hardware interrupt** - Device signals CPU
 2. **Context save** - Current process state saved
 3. **Interrupt handler** - Kernel executes ISR
 4. **Context restore** - Return to interrupted process
 
 **Types:**
+
 - **Hardware interrupts** - External devices
 - **Software interrupts** - System calls, exceptions
 
 **Commands:**
+
 - `/proc/interrupts` - Show interrupt statistics
 - `cat /proc/stat` - System statistics
 
@@ -277,6 +306,7 @@
 ## 18. Load Average
 
 **Definition:** Average number of processes that are either:
+
 - Running on CPU
 - Waiting for CPU
 - Waiting for I/O to complete
@@ -284,6 +314,7 @@
 **Time periods:** 1, 5, and 15 minutes
 
 **Interpretation:**
+
 - **< 1.0** - No wait time
 - **= 1.0** - System fully utilized
 - **> 1.0** - Processes waiting
@@ -295,6 +326,7 @@
 ## 19. What Happens When You curl a Website
 
 **Network flow:**
+
 1. **DNS lookup** - Resolve domain to IP
 2. **TCP connection** - 3-way handshake
 3. **TLS handshake** - SSL/TLS negotiation (HTTPS)
@@ -304,6 +336,7 @@
 7. **Connection close** - TCP teardown
 
 **Tools for debugging:**
+
 - `nslookup/dig` - DNS lookup
 - `tcpdump` - Packet capture
 - `netstat` - Network connections
@@ -316,9 +349,11 @@
 ### Core Dumps Analysis
 
 **What is a Core Dump:**
+
 A core dump is a snapshot of a process's memory and CPU state when it crashes, used for post-mortem debugging.
 
 **Enabling Core Dumps:**
+
 ```bash
 # Check current limits
 ulimit -c
@@ -458,6 +493,7 @@ function check_memory_growth() {
 ## Quick Reference Commands
 
 **System Info:**
+
 ```bash
 uname -a                 # System information
 cat /etc/os-release     # OS version
@@ -466,6 +502,7 @@ lsmem                   # Memory information
 ```
 
 **Process Management:**
+
 ```bash
 ps aux                  # All processes
 pgrep -f pattern        # Find processes by name
@@ -474,6 +511,7 @@ nohup command &        # Run command in background
 ```
 
 **File Operations:**
+
 ```bash
 find / -name filename   # Find files
 lsof filename          # Show processes using file
@@ -481,6 +519,7 @@ fuser -v filename      # Show processes using file
 ```
 
 **Network:**
+
 ```bash
 ss -tulpn              # Show listening ports
 netstat -i             # Network interfaces
@@ -488,6 +527,7 @@ iftop                  # Network traffic monitor
 ```
 
 **Disk/Filesystem:**
+
 ```bash
 lsblk                  # List block devices
 mount                  # Show mounted filesystems

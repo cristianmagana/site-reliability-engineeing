@@ -279,7 +279,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../commands-reference/" class="md-tabs__link">
           
   
   
@@ -431,10 +431,6 @@
     
       
         
-          
-        
-      
-        
       
         
       
@@ -461,9 +457,8 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
   
   
   <span class="md-ellipsis">
@@ -472,14 +467,8 @@
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
@@ -487,8 +476,6 @@
             Linux
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
             
               
                 
@@ -861,40 +848,50 @@
 
 <h1 id="linux-sre-troubleshooting-study-sheet">Linux SRE Troubleshooting Study Sheet</h1>
 <h2 id="1-linux-boot-process-from-power-on-to-login-prompt">1. Linux Boot Process - From Power On to Login Prompt</h2>
-<p><strong>Boot Sequence:</strong>
-1. <strong>BIOS/UEFI</strong> - Hardware initialization, POST (Power-On Self-Test)
-2. <strong>Bootloader (GRUB)</strong> - Loads kernel from disk
-3. <strong>Kernel Initialization</strong> - Memory management, device drivers
-4. <strong>Init Process (PID 1)</strong> - systemd/SysV init starts
-5. <strong>System Services</strong> - Network, logging, etc.
-6. <strong>Display Manager</strong> - Login prompt appears</p>
-<p><strong>Key Files:</strong>
-- <code>/boot/grub/grub.cfg</code> - Bootloader configuration
-- <code>/etc/systemd/system/</code> - Service definitions
-- <code>/var/log/boot.log</code> - Boot messages</p>
+<p><strong>Boot Sequence:</strong></p>
+<ol>
+<li><strong>BIOS/UEFI</strong> - Hardware initialization, POST (Power-On Self-Test)</li>
+<li><strong>Bootloader (GRUB)</strong> - Loads kernel from disk</li>
+<li><strong>Kernel Initialization</strong> - Memory management, device drivers</li>
+<li><strong>Init Process (PID 1)</strong> - systemd/SysV init starts</li>
+<li><strong>System Services</strong> - Network, logging, etc.</li>
+<li><strong>Display Manager</strong> - Login prompt appears</li>
+</ol>
+<p><strong>Key Files:</strong></p>
+<ul>
+<li><code>/boot/grub/grub.cfg</code> - Bootloader configuration</li>
+<li><code>/etc/systemd/system/</code> - Service definitions</li>
+<li><code>/var/log/boot.log</code> - Boot messages</li>
+</ul>
 <hr />
 <h2 id="2-what-happens-when-you-type-ls">2. What Happens When You Type <code>ls</code></h2>
-<p><strong>Process Flow:</strong>
-1. <strong>Shell parsing</strong> - <code>getline()</code> reads input, <code>strtok()</code> tokenizes
-2. <strong>Alias check</strong> - Shell checks if <code>ls</code> is an alias/builtin
-3. <strong>PATH lookup</strong> - Shell searches PATH directories for <code>ls</code> binary
-4. <strong>Process creation</strong> - <code>fork()</code> creates child process (returns 0 to child, PID to parent)
-5. <strong>Program execution</strong> - <code>execve()</code> gives child new address space
-6. <strong>Directory reading</strong> - <code>ls</code> reads filesystem inodes
-7. <strong>Process termination</strong> - <code>_exit(0)</code> called, kernel frees resources</p>
+<p><strong>Process Flow:</strong></p>
+<ol>
+<li><strong>Shell parsing</strong> - <code>getline()</code> reads input, <code>strtok()</code> tokenizes</li>
+<li><strong>Alias check</strong> - Shell checks if <code>ls</code> is an alias/builtin</li>
+<li><strong>PATH lookup</strong> - Shell searches PATH directories for <code>ls</code> binary</li>
+<li><strong>Process creation</strong> - <code>fork()</code> creates child process (returns 0 to child, PID to parent)</li>
+<li><strong>Program execution</strong> - <code>execve()</code> gives child new address space</li>
+<li><strong>Directory reading</strong> - <code>ls</code> reads filesystem inodes</li>
+<li><strong>Process termination</strong> - <code>_exit(0)</code> called, kernel frees resources</li>
+</ol>
 <p><strong>Debug command:</strong> <code>strace ls</code> to see system calls</p>
 <hr />
 <h2 id="3-linux-inodes">3. Linux Inodes</h2>
 <p><strong>Definition:</strong> Data structure storing file/directory metadata</p>
-<p><strong>Inode contains:</strong>
-- File permissions and ownership
-- File size and timestamps
-- Pointers to data blocks
-- Link count</p>
-<p><strong>Commands:</strong>
-- <code>ls -i</code> - Show inode numbers
-- <code>stat filename</code> - Display inode information
-- <code>df -i</code> - Show inode usage</p>
+<p><strong>Inode contains:</strong></p>
+<ul>
+<li>File permissions and ownership</li>
+<li>File size and timestamps</li>
+<li>Pointers to data blocks</li>
+<li>Link count</li>
+</ul>
+<p><strong>Commands:</strong></p>
+<ul>
+<li><code>ls -i</code> - Show inode numbers</li>
+<li><code>stat filename</code> - Display inode information</li>
+<li><code>df -i</code> - Show inode usage</li>
+</ul>
 <hr />
 <h2 id="4-crash-vs-panic">4. Crash vs Panic</h2>
 <table>
@@ -919,85 +916,107 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Common crash signals:</strong>
-- <strong>SIGSEGV</strong> - Segmentation fault
-- <strong>SIGBUS</strong> - Bus error<br />
-- <strong>SIGILL</strong> - Illegal instruction</p>
+<p><strong>Common crash signals:</strong></p>
+<ul>
+<li><strong>SIGSEGV</strong> - Segmentation fault</li>
+<li><strong>SIGBUS</strong> - Bus error  </li>
+<li><strong>SIGILL</strong> - Illegal instruction</li>
+</ul>
 <p><strong>Tools:</strong> <code>gdb</code>, signal handlers, core dumps</p>
 <hr />
 <h2 id="5-proc-filesystem">5. /proc Filesystem</h2>
 <p><strong>Virtual filesystem</strong> containing runtime system information</p>
-<p><strong>Key directories/files:</strong>
-- <code>/proc/[PID]/</code> - Process-specific information
-- <code>/proc/self/</code> - Current process
-- <code>/proc/[PID]/maps</code> - Memory mappings
-- <code>/proc/[PID]/cmdline</code> - Command line arguments
-- <code>/proc/[PID]/environ</code> - Environment variables
-- <code>/proc/[PID]/fd/</code> - File descriptors
-- <code>/proc/locks</code> - File locks
-- <code>/proc/sys/fs/file-nr</code> - Open file statistics
-- <code>/proc/sys/vm/</code> - Virtual memory tuning</p>
+<p><strong>Key directories/files:</strong></p>
+<ul>
+<li><code>/proc/[PID]/</code> - Process-specific information</li>
+<li><code>/proc/self/</code> - Current process</li>
+<li><code>/proc/[PID]/maps</code> - Memory mappings</li>
+<li><code>/proc/[PID]/cmdline</code> - Command line arguments</li>
+<li><code>/proc/[PID]/environ</code> - Environment variables</li>
+<li><code>/proc/[PID]/fd/</code> - File descriptors</li>
+<li><code>/proc/locks</code> - File locks</li>
+<li><code>/proc/sys/fs/file-nr</code> - Open file statistics</li>
+<li><code>/proc/sys/vm/</code> - Virtual memory tuning</li>
+</ul>
 <hr />
 <h2 id="6-filesystem-full-but-df-shows-space">6. Filesystem Full but df Shows Space</h2>
-<p><strong>Troubleshooting steps:</strong>
-1. <strong>Check inodes:</strong> <code>df -i</code> (look for 0 IFree)
-2. <strong>Check deleted files in use:</strong> <code>lsof | grep deleted</code>
-3. <strong>Restart processes</strong> holding deleted files
-4. <strong>Check for large files:</strong> <code>du -sh /*</code></p>
-<p><strong>Common causes:</strong>
-- Inode exhaustion
-- Deleted files still open by processes
-- Reserved blocks for root</p>
+<p><strong>Troubleshooting steps:</strong></p>
+<ol>
+<li><strong>Check inodes:</strong> <code>df -i</code> (look for 0 IFree)</li>
+<li><strong>Check deleted files in use:</strong> <code>lsof | grep deleted</code></li>
+<li><strong>Restart processes</strong> holding deleted files</li>
+<li><strong>Check for large files:</strong> <code>du -sh /*</code></li>
+</ol>
+<p><strong>Common causes:</strong></p>
+<ul>
+<li>Inode exhaustion</li>
+<li>Deleted files still open by processes</li>
+<li>Reserved blocks for root</li>
+</ul>
 <hr />
 <h2 id="7-linux-performance-tools">7. Linux Performance Tools</h2>
-<p><strong>Essential monitoring tools:</strong>
-1. <strong>uptime</strong> - Load averages
-2. <strong>dmesg | tail</strong> - Kernel messages
-3. <strong>vmstat 1</strong> - Virtual memory statistics
-4. <strong>mpstat -P ALL 1</strong> - CPU usage per core
-5. <strong>pidstat 1</strong> - Process statistics
-6. <strong>iostat -xz 1</strong> - I/O statistics
-7. <strong>free -m</strong> - Memory usage
-8. <strong>sar -n DEV 1</strong> - Network device statistics
-9. <strong>sar -n TCP,ETCP 1</strong> - TCP statistics
-10. <strong>top/htop</strong> - Process monitoring</p>
+<p><strong>Essential monitoring tools:</strong></p>
+<ol>
+<li><strong>uptime</strong> - Load averages</li>
+<li><strong>dmesg | tail</strong> - Kernel messages</li>
+<li><strong>vmstat 1</strong> - Virtual memory statistics</li>
+<li><strong>mpstat -P ALL 1</strong> - CPU usage per core</li>
+<li><strong>pidstat 1</strong> - Process statistics</li>
+<li><strong>iostat -xz 1</strong> - I/O statistics</li>
+<li><strong>free -m</strong> - Memory usage</li>
+<li><strong>sar -n DEV 1</strong> - Network device statistics</li>
+<li><strong>sar -n TCP,ETCP 1</strong> - TCP statistics</li>
+<li><strong>top/htop</strong> - Process monitoring</li>
+</ol>
 <hr />
 <h2 id="8-linux-filesystem-types">8. Linux Filesystem Types</h2>
-<p><strong>Common filesystems:</strong>
-- <strong>EXT4</strong> - Default Linux filesystem
-- <strong>XFS</strong> - High-performance journaling
-- <strong>BTRFS</strong> - Copy-on-write with snapshots
-- <strong>ZFS</strong> - Advanced features, checksumming
-- <strong>NTFS</strong> - Windows compatibility</p>
-<p><strong>Commands:</strong>
-- <code>mount</code> - Show mounted filesystems
-- <code>lsblk</code> - List block devices
-- <code>fsck</code> - Filesystem check</p>
+<p><strong>Common filesystems:</strong></p>
+<ul>
+<li><strong>EXT4</strong> - Default Linux filesystem</li>
+<li><strong>XFS</strong> - High-performance journaling</li>
+<li><strong>BTRFS</strong> - Copy-on-write with snapshots</li>
+<li><strong>ZFS</strong> - Advanced features, checksumming</li>
+<li><strong>NTFS</strong> - Windows compatibility</li>
+</ul>
+<p><strong>Commands:</strong></p>
+<ul>
+<li><code>mount</code> - Show mounted filesystems</li>
+<li><code>lsblk</code> - List block devices</li>
+<li><code>fsck</code> - Filesystem check</li>
+</ul>
 <hr />
 <h2 id="9-kernel-space-vs-user-space">9. Kernel Space vs User Space</h2>
-<p><strong>User Space:</strong>
-- Applications run here
-- Limited access to hardware
-- Uses system calls to access kernel</p>
-<p><strong>Kernel Space:</strong>
-- Operating system kernel
-- Direct hardware access
-- Memory protection enforced</p>
-<p><strong>Communication:</strong> System calls bridge user/kernel space
-<strong>Libraries:</strong> libc provides system call wrappers</p>
+<p><strong>User Space:</strong></p>
+<ul>
+<li>Applications run here</li>
+<li>Limited access to hardware</li>
+<li>Uses system calls to access kernel</li>
+</ul>
+<p><strong>Kernel Space:</strong></p>
+<ul>
+<li>Operating system kernel</li>
+<li>Direct hardware access</li>
+<li>Memory protection enforced</li>
+</ul>
+<p><strong>Communication:</strong> System calls bridge user/kernel space</p>
+<p><strong>Libraries:</strong> libc provides system call wrappers</p>
 <hr />
 <h2 id="10-high-io-troubleshooting">10. High I/O Troubleshooting</h2>
-<p><strong>Investigation steps:</strong>
-1. <strong>Identify source:</strong> <code>iotop</code>, <code>iostat -x 1</code>
-2. <strong>Check disk utilization:</strong> <code>iostat -x 1</code> (look for %util)
-3. <strong>Find processes:</strong> <code>iotop</code>, <code>pidstat -d 1</code>
-4. <strong>Check disk health:</strong> <code>smartctl -a /dev/sda</code>
-5. <strong>Analyze I/O patterns:</strong> <code>blktrace</code></p>
-<p><strong>Key metrics:</strong>
-- <strong>IOPS</strong> - I/O operations per second
-- <strong>Throughput</strong> - MB/s
-- <strong>Latency</strong> - Response time
-- <strong>Queue depth</strong> - Pending I/O requests</p>
+<p><strong>Investigation steps:</strong></p>
+<ol>
+<li><strong>Identify source:</strong> <code>iotop</code>, <code>iostat -x 1</code></li>
+<li><strong>Check disk utilization:</strong> <code>iostat -x 1</code> (look for %util)</li>
+<li><strong>Find processes:</strong> <code>iotop</code>, <code>pidstat -d 1</code></li>
+<li><strong>Check disk health:</strong> <code>smartctl -a /dev/sda</code></li>
+<li><strong>Analyze I/O patterns:</strong> <code>blktrace</code></li>
+</ol>
+<p><strong>Key metrics:</strong></p>
+<ul>
+<li><strong>IOPS</strong> - I/O operations per second</li>
+<li><strong>Throughput</strong> - MB/s</li>
+<li><strong>Latency</strong> - Response time</li>
+<li><strong>Queue depth</strong> - Pending I/O requests</li>
+</ul>
 <hr />
 <h2 id="11-processes-vs-threads">11. Processes vs Threads</h2>
 <table>
@@ -1026,41 +1045,53 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Process Control Block (PCB)</strong> contains:
-- Process ID (PID)
-- Memory pointers
-- CPU registers
-- I/O status</p>
+<p><strong>Process Control Block (PCB)</strong> contains:</p>
+<ul>
+<li>Process ID (PID)</li>
+<li>Memory pointers</li>
+<li>CPU registers</li>
+<li>I/O status</li>
+</ul>
 <hr />
 <h2 id="12-kernel-memory-management">12. Kernel Memory Management</h2>
-<p><strong>Key concepts:</strong>
-- <strong>Virtual Memory</strong> - Abstraction layer over physical memory
-- <strong>Page Tables</strong> - Virtual to physical address mapping
-- <strong>Memory Zones</strong> - DMA, Normal, HighMem
-- <strong>Slab Allocator</strong> - Kernel object caching
-- <strong>Page Cache</strong> - File system caching</p>
-<p><strong>Commands:</strong>
-- <code>/proc/meminfo</code> - Memory statistics
-- <code>free -m</code> - Memory usage
-- <code>/proc/slabinfo</code> - Slab cache info</p>
+<p><strong>Key concepts:</strong></p>
+<ul>
+<li><strong>Virtual Memory</strong> - Abstraction layer over physical memory</li>
+<li><strong>Page Tables</strong> - Virtual to physical address mapping</li>
+<li><strong>Memory Zones</strong> - DMA, Normal, HighMem</li>
+<li><strong>Slab Allocator</strong> - Kernel object caching</li>
+<li><strong>Page Cache</strong> - File system caching</li>
+</ul>
+<p><strong>Commands:</strong></p>
+<ul>
+<li><code>/proc/meminfo</code> - Memory statistics</li>
+<li><code>free -m</code> - Memory usage</li>
+<li><code>/proc/slabinfo</code> - Slab cache info</li>
+</ul>
 <hr />
 <h2 id="13-process-states">13. Process States</h2>
-<p><strong>Task states:</strong>
-- <strong>TASK_RUNNING (R)</strong> - Executing or runnable
-- <strong>TASK_INTERRUPTIBLE (S)</strong> - Sleeping, waiting for signal
-- <strong>TASK_UNINTERRUPTIBLE (D)</strong> - Deep sleep, usually I/O wait
-- <strong>TASK_STOPPED (T)</strong> - Stopped by signal
-- <strong>TASK_ZOMBIE (Z)</strong> - Terminated, awaiting parent cleanup</p>
-<p><strong>Commands:</strong>
-- <code>ps aux</code> - Show process states
-- <code>top</code> - Real-time process monitoring</p>
+<p><strong>Task states:</strong></p>
+<ul>
+<li><strong>TASK_RUNNING (R)</strong> - Executing or runnable</li>
+<li><strong>TASK_INTERRUPTIBLE (S)</strong> - Sleeping, waiting for signal</li>
+<li><strong>TASK_UNINTERRUPTIBLE (D)</strong> - Deep sleep, usually I/O wait</li>
+<li><strong>TASK_STOPPED (T)</strong> - Stopped by signal</li>
+<li><strong>TASK_ZOMBIE (Z)</strong> - Terminated, awaiting parent cleanup</li>
+</ul>
+<p><strong>Commands:</strong></p>
+<ul>
+<li><code>ps aux</code> - Show process states</li>
+<li><code>top</code> - Real-time process monitoring</li>
+</ul>
 <hr />
 <h2 id="14-linux-concurrency-and-race-conditions">14. Linux Concurrency and Race Conditions</h2>
-<p><strong>Concurrency mechanisms:</strong>
-- <strong>Mutexes</strong> - Mutual exclusion locks
-- <strong>Semaphores</strong> - Counting locks
-- <strong>Spinlocks</strong> - Busy-wait locks
-- <strong>RCU</strong> - Read-Copy-Update</p>
+<p><strong>Concurrency mechanisms:</strong></p>
+<ul>
+<li><strong>Mutexes</strong> - Mutual exclusion locks</li>
+<li><strong>Semaphores</strong> - Counting locks</li>
+<li><strong>Spinlocks</strong> - Busy-wait locks</li>
+<li><strong>RCU</strong> - Read-Copy-Update</li>
+</ul>
 <p><strong>Race conditions</strong> occur when multiple threads access shared data simultaneously</p>
 <p><strong>Prevention:</strong> Proper locking, atomic operations</p>
 <hr />
@@ -1095,63 +1126,81 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Stack:</strong> Function calls, local variables
-<strong>Heap:</strong> Dynamic memory allocation (<code>malloc</code>, <code>new</code>)</p>
+<p><strong>Stack:</strong> Function calls, local variables</p>
+<p><strong>Heap:</strong> Dynamic memory allocation (<code>malloc</code>, <code>new</code>)</p>
 <hr />
 <h2 id="16-memory-leaks">16. Memory Leaks</h2>
-<p><strong>Types:</strong>
-1. <strong>Classic leak</strong> - Unreachable memory not freed
-2. <strong>Semantic leak</strong> - Reachable but unnecessary memory</p>
-<p><strong>Detection tools:</strong>
-- <code>valgrind</code> - Memory error detector
-- <code>mtrace</code> - GNU malloc debugging
-- <code>AddressSanitizer</code> - Google's memory error detector</p>
+<p><strong>Types:</strong></p>
+<ol>
+<li><strong>Classic leak</strong> - Unreachable memory not freed</li>
+<li><strong>Semantic leak</strong> - Reachable but unnecessary memory</li>
+</ol>
+<p><strong>Detection tools:</strong></p>
+<ul>
+<li><code>valgrind</code> - Memory error detector</li>
+<li><code>mtrace</code> - GNU malloc debugging</li>
+<li><code>AddressSanitizer</code> - Google's memory error detector</li>
+</ul>
 <p><strong>Prevention:</strong> RAII, smart pointers, garbage collection</p>
 <hr />
 <h2 id="17-linux-interrupt-handling">17. Linux Interrupt Handling</h2>
-<p><strong>Interrupt processing:</strong>
-1. <strong>Hardware interrupt</strong> - Device signals CPU
-2. <strong>Context save</strong> - Current process state saved
-3. <strong>Interrupt handler</strong> - Kernel executes ISR
-4. <strong>Context restore</strong> - Return to interrupted process</p>
-<p><strong>Types:</strong>
-- <strong>Hardware interrupts</strong> - External devices
-- <strong>Software interrupts</strong> - System calls, exceptions</p>
-<p><strong>Commands:</strong>
-- <code>/proc/interrupts</code> - Show interrupt statistics
-- <code>cat /proc/stat</code> - System statistics</p>
+<p><strong>Interrupt processing:</strong></p>
+<ol>
+<li><strong>Hardware interrupt</strong> - Device signals CPU</li>
+<li><strong>Context save</strong> - Current process state saved</li>
+<li><strong>Interrupt handler</strong> - Kernel executes ISR</li>
+<li><strong>Context restore</strong> - Return to interrupted process</li>
+</ol>
+<p><strong>Types:</strong></p>
+<ul>
+<li><strong>Hardware interrupts</strong> - External devices</li>
+<li><strong>Software interrupts</strong> - System calls, exceptions</li>
+</ul>
+<p><strong>Commands:</strong></p>
+<ul>
+<li><code>/proc/interrupts</code> - Show interrupt statistics</li>
+<li><code>cat /proc/stat</code> - System statistics</li>
+</ul>
 <hr />
 <h2 id="18-load-average">18. Load Average</h2>
-<p><strong>Definition:</strong> Average number of processes that are either:
-- Running on CPU
-- Waiting for CPU
-- Waiting for I/O to complete</p>
+<p><strong>Definition:</strong> Average number of processes that are either:</p>
+<ul>
+<li>Running on CPU</li>
+<li>Waiting for CPU</li>
+<li>Waiting for I/O to complete</li>
+</ul>
 <p><strong>Time periods:</strong> 1, 5, and 15 minutes</p>
-<p><strong>Interpretation:</strong>
-- <strong>&lt; 1.0</strong> - No wait time
-- <strong>= 1.0</strong> - System fully utilized
-- <strong>&gt; 1.0</strong> - Processes waiting</p>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li><strong>&lt; 1.0</strong> - No wait time</li>
+<li><strong>= 1.0</strong> - System fully utilized</li>
+<li><strong>&gt; 1.0</strong> - Processes waiting</li>
+</ul>
 <p><strong>Commands:</strong> <code>uptime</code>, <code>w</code>, <code>top</code></p>
 <hr />
 <h2 id="19-what-happens-when-you-curl-a-website">19. What Happens When You curl a Website</h2>
-<p><strong>Network flow:</strong>
-1. <strong>DNS lookup</strong> - Resolve domain to IP
-2. <strong>TCP connection</strong> - 3-way handshake
-3. <strong>TLS handshake</strong> - SSL/TLS negotiation (HTTPS)
-4. <strong>HTTP request</strong> - Send GET/POST request
-5. <strong>Server processing</strong> - Web server handles request
-6. <strong>HTTP response</strong> - Server sends response
-7. <strong>Connection close</strong> - TCP teardown</p>
-<p><strong>Tools for debugging:</strong>
-- <code>nslookup/dig</code> - DNS lookup
-- <code>tcpdump</code> - Packet capture
-- <code>netstat</code> - Network connections
-- <code>curl -v</code> - Verbose output</p>
+<p><strong>Network flow:</strong></p>
+<ol>
+<li><strong>DNS lookup</strong> - Resolve domain to IP</li>
+<li><strong>TCP connection</strong> - 3-way handshake</li>
+<li><strong>TLS handshake</strong> - SSL/TLS negotiation (HTTPS)</li>
+<li><strong>HTTP request</strong> - Send GET/POST request</li>
+<li><strong>Server processing</strong> - Web server handles request</li>
+<li><strong>HTTP response</strong> - Server sends response</li>
+<li><strong>Connection close</strong> - TCP teardown</li>
+</ol>
+<p><strong>Tools for debugging:</strong></p>
+<ul>
+<li><code>nslookup/dig</code> - DNS lookup</li>
+<li><code>tcpdump</code> - Packet capture</li>
+<li><code>netstat</code> - Network connections</li>
+<li><code>curl -v</code> - Verbose output</li>
+</ul>
 <hr />
 <h2 id="20-production-debugging">20. Production Debugging</h2>
 <h3 id="core-dumps-analysis">Core Dumps Analysis</h3>
-<p><strong>What is a Core Dump:</strong>
-A core dump is a snapshot of a process's memory and CPU state when it crashes, used for post-mortem debugging.</p>
+<p><strong>What is a Core Dump:</strong></p>
+<p>A core dump is a snapshot of a process's memory and CPU state when it crashes, used for post-mortem debugging.</p>
 <p><strong>Enabling Core Dumps:</strong></p>
 <pre><code class="language-bash"># Check current limits
 ulimit -c

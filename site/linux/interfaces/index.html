@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#based-off-the-xv6x86-architecture" class="md-skip">
+        <a href="#linux-operating-system-interfaces" class="md-skip">
           Skip to content
         </a>
       
@@ -279,7 +279,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../commands-reference/" class="md-tabs__link">
           
   
   
@@ -431,10 +431,6 @@
     
       
         
-          
-        
-      
-        
       
         
       
@@ -461,9 +457,8 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
   
   
   <span class="md-ellipsis">
@@ -472,14 +467,8 @@
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
@@ -487,8 +476,6 @@
             Linux
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
             
               
                 
@@ -570,18 +557,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#uci-ics-143a" class="md-nav__link">
-    <span class="md-ellipsis">
-      UCI ICS 143A
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#interfaces" class="md-nav__link">
     <span class="md-ellipsis">
-      Interfaces
+      🔌 Interfaces
     </span>
   </a>
   
@@ -590,16 +568,31 @@
         <li class="md-nav__item">
   <a href="#kernel" class="md-nav__link">
     <span class="md-ellipsis">
-      Kernel
+      ⚙️ Kernel
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Kernel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-kernels-four-key-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 The Kernel's Four Key Responsibilities
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#shell" class="md-nav__link">
     <span class="md-ellipsis">
-      Shell
+      🐚 Shell
     </span>
   </a>
   
@@ -608,7 +601,7 @@
         <li class="md-nav__item">
   <a href="#process" class="md-nav__link">
     <span class="md-ellipsis">
-      Process
+      🔄 Process
     </span>
   </a>
   
@@ -617,25 +610,70 @@
         <li class="md-nav__item">
   <a href="#system-calls" class="md-nav__link">
     <span class="md-ellipsis">
-      System Calls
+      📞 System Calls
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="📞 System Calls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-call-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 System Call Reference
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#io-and-file-descriptors" class="md-nav__link">
     <span class="md-ellipsis">
-      I/O and File descriptors
+      📁 I/O and File Descriptors
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="📁 I/O and File Descriptors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-descriptor" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔢 File Descriptor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔢 File Descriptor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-file-descriptors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard File Descriptors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#pipes" class="md-nav__link">
     <span class="md-ellipsis">
-      Pipes
+      🔗 Pipes
     </span>
   </a>
   
@@ -644,9 +682,24 @@
         <li class="md-nav__item">
   <a href="#file-system" class="md-nav__link">
     <span class="md-ellipsis">
-      File system
+      🗂️ File System
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="🗂️ File System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inode" class="md-nav__link">
+    <span class="md-ellipsis">
+      📇 Inode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -727,113 +780,169 @@
 
 
 
-<h1 id="based-off-the-xv6x86-architecture"><a href="https://pdos.csail.mit.edu/6.828/2018/xv6/book-rev11.pdf">based off the xv6/x86 architecture</a></h1>
-<h3 id="uci-ics-143a"><a href="https://www.ics.uci.edu/~aburtsev/143A/">UCI ICS 143A</a></h3>
-<p><br></p>
+<h1 id="linux-operating-system-interfaces">🐧 Linux Operating System Interfaces</h1>
 <blockquote>
-<h3 id="interfaces">Interfaces</h3>
-<p>An operating system provides services to user programs through an interface </p>
+<p><strong>Based on</strong> <a href="https://pdos.csail.mit.edu/6.828/2018/xv6/book-rev11.pdf">xv6/x86 architecture</a><br />
+<strong>Course Reference</strong> <a href="https://www.ics.uci.edu/~aburtsev/143A/">UCI ICS 143A</a></p>
 </blockquote>
-<p><img alt="Interface" src="https://github.com/cristianmagana/site-reliability-engineeing/blob/master/docs/linux/img/interface.png" /></p>
-<p><br></p>
-<blockquote>
-<h3 id="kernel">Kernel</h3>
-<p><br> 
-The core interface between a computer’s hardware and its processes. The kernel uses the CPU’s hardware protection mechanisms to ensure that each process executing in user space can access only its own memory. The kernel executes with the hardware privileges required to implement these protections; user programs execute without those privileges. When a user program invokes a system call, the hardware raises the privilege level and starts executing a pre-arranged function in the kernel. </p>
-</blockquote>
-<p><br>The kernel has 4 jobs: <br><br></p>
+<h2 id="interfaces">🔌 Interfaces</h2>
+<p>An operating system provides services to user programs through an interface that acts as a bridge between applications and system resources.</p>
+<p><img alt="Interface" src="../img/interface.png" /></p>
+<h2 id="kernel">⚙️ Kernel</h2>
+<p>The <strong>kernel</strong> is the core interface between a computer's hardware and its processes. It uses the CPU's hardware protection mechanisms to ensure that each process executing in user space can access only its own memory. The kernel executes with the hardware privileges required to implement these protections; user programs execute without those privileges. When a user program invokes a system call, the hardware raises the privilege level and starts executing a pre-arranged function in the kernel.</p>
+<h3 id="the-kernels-four-key-responsibilities">🎯 The Kernel's Four Key Responsibilities</h3>
 <ol>
 <li>
-<p><b>Memory management:</b> Keep track of how much memory is used to store what, and where</p>
+<p><strong>🧠 Memory Management</strong><br />
+   Keep track of how much memory is used to store what, and where</p>
 </li>
 <li>
-<p><b>Process management:</b> Determine which processes can use the central processing unit (CPU), when, and for how long</p>
+<p><strong>⚡ Process Management</strong><br />
+   Determine which processes can use the central processing unit (CPU), when, and for how long</p>
 </li>
-<li><b>Device drivers:</b> Act as mediator/interpreter between the hardware and processes</li>
-<li><b>System calls and security:</b> Receive requests for service from the processes</li>
+<li>
+<p><strong>🔧 Device Drivers</strong><br />
+   Act as mediator/interpreter between the hardware and processes</p>
+</li>
+<li>
+<p><strong>🔒 System Calls and Security</strong><br />
+   Receive requests for service from the processes</p>
+</li>
 </ol>
-<p><br></p>
-<blockquote>
-<h3 id="shell">Shell</h3>
-</blockquote>
-<p><br>
-The shell is an ordinary program that reads commands from the user and executes them. The fact that the shell is a user program, not part of the kernel, illustrates the power of the system call interface.</p>
-<p><br>
-<br></p>
-<blockquote>
-<h3 id="process">Process</h3>
-<p><br> </p>
-</blockquote>
-<p>Each running program, called a process, has memory containing instructions, data, and a stack. The instructions implement the program’s computation. The data are the variables on which the computation acts. The stack organizes the program’s procedure calls. A process alternates between executing in user space and kernel space.</p>
-<p><br></p>
-<blockquote>
-<h3 id="system-calls">System Calls</h3>
-<p><br>
-When a process needs to invoke a kernel service, it invokes a procedure call in the operating system interface. The system call enters the kernel; the kernel performs the service and returns.</p>
-</blockquote>
-<p><br></p>
-<p><br></p>
-<details>
-
-<br>
-
-  <summary>List of System Calls</summary>
-
-| System call | Description |
-| -------- | ------ |
-| fork()     | Create a process |
-| exit()     | Terminate the current process  |
-| wait()     | Wait for a child process to exit |
-| kill(pid)  | Terminate process pid | 
-| getpid()   | Return the current process’s pid |
-| sleep(n) |  Sleep for n clock ticks | 
-| exec(filename, *argv)    |  Load a file and execute it  |
-| sbrk(n) | Grow process’s memory by n bytes | 
-| open(filename, flags)    |  Open a file; the flags indicate read/write  |
-| read(fd, buf, n) |  Read n bytes from an open file into buf | 
-| write(fd, buf, n)   | Write n bytes to an open file  |
-| close(fd) | Release open file fd | 
-| dup(fd)    |   Duplicate fd |
-| pipe(p) |  Create a pipe and return fd’s in p | 
-| chdir(dirname)    |  Change the current directory  |
-| mkdir(dirname) |  Create a new directory | 
-| mknod(name, major, minor) |  Create a device file | 
-| fstat(fd) |  Return info about an open file | 
-| link(f1, f2) |  Create another name (f2) for the file f1 | 
-| unlink(filename) | Remove a file  | 
-
-</details>
-
-<p><br></p>
-<blockquote>
-<h3 id="io-and-file-descriptors">I/O and File descriptors</h3>
-<p><br>
-<b>File Descriptor</b><br>
-A small integer representing a kernel-managed object that a process may read from or write to. A process may obtain a file descriptor by opening a file, directory, or device, or by creating a pipe, or by duplicating an existing descriptor. The file descriptor interface abstracts away the differences between files, pipes, and devices, making them all look like streams of bytes.</p>
-</blockquote>
-<p><br>
-<br></p>
+<h2 id="shell">🐚 Shell</h2>
+<p>The <strong>shell</strong> is an ordinary program that reads commands from the user and executes them. The fact that the shell is a user program, not part of the kernel, illustrates the power of the system call interface.</p>
+<h2 id="process">🔄 Process</h2>
+<p>Each running program, called a <strong>process</strong>, has memory containing instructions, data, and a stack:
+- <strong>Instructions</strong> implement the program's computation
+- <strong>Data</strong> are the variables on which the computation acts<br />
+- <strong>Stack</strong> organizes the program's procedure calls</p>
+<p>A process alternates between executing in <strong>user space</strong> and <strong>kernel space</strong>.</p>
+<h2 id="system-calls">📞 System Calls</h2>
+<p>When a process needs to invoke a kernel service, it invokes a procedure call in the operating system interface. The system call enters the kernel; the kernel performs the service and returns.</p>
+<h3 id="system-call-reference">📋 System Call Reference</h3>
+<table>
+<thead>
+<tr>
+<th>System Call</th>
+<th>🔍 Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fork()</code></td>
+<td>🍴 Create a process</td>
+</tr>
+<tr>
+<td><code>exit()</code></td>
+<td>❌ Terminate the current process</td>
+</tr>
+<tr>
+<td><code>wait()</code></td>
+<td>⏳ Wait for a child process to exit</td>
+</tr>
+<tr>
+<td><code>kill(pid)</code></td>
+<td>💀 Terminate process pid</td>
+</tr>
+<tr>
+<td><code>getpid()</code></td>
+<td>🆔 Return the current process's pid</td>
+</tr>
+<tr>
+<td><code>sleep(n)</code></td>
+<td>💤 Sleep for n clock ticks</td>
+</tr>
+<tr>
+<td><code>exec(filename, *argv)</code></td>
+<td>🚀 Load a file and execute it</td>
+</tr>
+<tr>
+<td><code>sbrk(n)</code></td>
+<td>📈 Grow process's memory by n bytes</td>
+</tr>
+<tr>
+<td><code>open(filename, flags)</code></td>
+<td>📂 Open a file; the flags indicate read/write</td>
+</tr>
+<tr>
+<td><code>read(fd, buf, n)</code></td>
+<td>📖 Read n bytes from an open file into buf</td>
+</tr>
+<tr>
+<td><code>write(fd, buf, n)</code></td>
+<td>✍️ Write n bytes to an open file</td>
+</tr>
+<tr>
+<td><code>close(fd)</code></td>
+<td>🔒 Release open file fd</td>
+</tr>
+<tr>
+<td><code>dup(fd)</code></td>
+<td>📋 Duplicate fd</td>
+</tr>
+<tr>
+<td><code>pipe(p)</code></td>
+<td>🔗 Create a pipe and return fd's in p</td>
+</tr>
+<tr>
+<td><code>chdir(dirname)</code></td>
+<td>📁 Change the current directory</td>
+</tr>
+<tr>
+<td><code>mkdir(dirname)</code></td>
+<td>📁➕ Create a new directory</td>
+</tr>
+<tr>
+<td><code>mknod(name, major, minor)</code></td>
+<td>🛠️ Create a device file</td>
+</tr>
+<tr>
+<td><code>fstat(fd)</code></td>
+<td>ℹ️ Return info about an open file</td>
+</tr>
+<tr>
+<td><code>link(f1, f2)</code></td>
+<td>🔗 Create another name (f2) for the file f1</td>
+</tr>
+<tr>
+<td><code>unlink(filename)</code></td>
+<td>🗑️ Remove a file</td>
+</tr>
+</tbody>
+</table>
+<h2 id="io-and-file-descriptors">📁 I/O and File Descriptors</h2>
+<h3 id="file-descriptor">🔢 File Descriptor</h3>
+<p>A <strong>file descriptor</strong> is a small integer representing a kernel-managed object that a process may read from or write to. A process may obtain a file descriptor by:
+- Opening a file, directory, or device
+- Creating a pipe
+- Duplicating an existing descriptor</p>
+<p>The file descriptor interface abstracts away the differences between files, pipes, and devices, making them all look like streams of bytes.</p>
+<h4 id="standard-file-descriptors">Standard File Descriptors</h4>
 <ol>
-<li>fd0 = stdin <br></li>
-<li>fd1 = stdout <br></li>
-<li>fd2 = stderr <br></li>
+<li><strong>fd0</strong> = <code>stdin</code> 📥 (Standard Input)</li>
+<li><strong>fd1</strong> = <code>stdout</code> 📤 (Standard Output)  </li>
+<li><strong>fd2</strong> = <code>stderr</code> 🚨 (Standard Error)</li>
 </ol>
-<p><br></p>
-<blockquote>
-<h3 id="pipes">Pipes</h3>
-</blockquote>
-<p><br></p>
-<p>A small kernel buffer exposed to processes as a pair of file descriptors, one for reading and one for writing. Writing data to one end of the pipe makes that data available for reading from the other end of the pipe. Pipes provide a way for processes to communicate.</p>
-<p><br></p>
-<blockquote>
-<h3 id="file-system">File system</h3>
-</blockquote>
-<p><br></p>
-<p>File system provides data files, which are uninterpreted byte arrays, and directories, which contain named references to data files and other directories. The directories form a tree, starting at a special directory called the root.</p>
-<p><br></p>
-<p><b>Inode</b> <br>
-A file’s name is distinct from the file itself; the same underlying file, called an (index node) inode, can have multiple names, called links. The link system call creates another file
-system name referring to the same inode as an existing file. Inodes do not store actual data. Instead, they store the metadata where you can find the storage blocks of each file’s data.</p>
+<h2 id="pipes">🔗 Pipes</h2>
+<p>A <strong>pipe</strong> is a small kernel buffer exposed to processes as a pair of file descriptors:
+- One for <strong>reading</strong> 📖
+- One for <strong>writing</strong> ✍️</p>
+<p>Writing data to one end of the pipe makes that data available for reading from the other end. Pipes provide a way for processes to communicate.</p>
+<h2 id="file-system">🗂️ File System</h2>
+<p>The file system provides:</p>
+<ul>
+<li><strong>Data files</strong> - uninterpreted byte arrays</li>
+<li><strong>Directories</strong> - contain named references to data files and other directories</li>
+</ul>
+<p>The directories form a tree structure, starting at a special directory called the <strong>root</strong> (<code>/</code>).</p>
+<h3 id="inode">📇 Inode</h3>
+<p>An <strong>inode</strong> (index node) represents the underlying file structure. Key concepts:</p>
+<ul>
+<li>A file's <strong>name</strong> is distinct from the file itself</li>
+<li>The same underlying file (inode) can have <strong>multiple names</strong>, called <strong>links</strong></li>
+<li>The <code>link()</code> system call creates another filename referring to the same inode</li>
+<li>Inodes <strong>do not store actual data</strong> - they store metadata indicating where to find the storage blocks of each file's data</li>
+</ul>
 
 
 

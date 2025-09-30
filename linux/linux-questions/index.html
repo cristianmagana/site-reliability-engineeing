@@ -1,0 +1,1957 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>MongoDB SRE Interview - Complete Study Guide - Site Reliability Engineering</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mongodb-sre-interview-complete-study-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Site Reliability Engineering" class="md-header__button md-logo" aria-label="Site Reliability Engineering" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Site Reliability Engineering
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MongoDB SRE Interview - Complete Study Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../terminology/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Terminology
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../databases/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Databases
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../commands-reference/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Linux
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../behavioral/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Behavioral
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Site Reliability Engineering" class="md-nav__button md-logo" aria-label="Site Reliability Engineering" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Site Reliability Engineering
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terminology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Databases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../commands-reference/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavioral/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Behavioral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="mongodb-sre-interview-complete-study-guide">MongoDB SRE Interview - Complete Study Guide</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#interview-overview">Interview Overview</a></li>
+<li><a href="#linux-fundamentals">Linux Fundamentals</a></li>
+<li><a href="#networking-fundamentals">Networking Fundamentals</a></li>
+<li><a href="#troubleshooting-scenarios">Troubleshooting Scenarios</a></li>
+<li><a href="#essential-commands-reference">Essential Commands Reference</a></li>
+<li><a href="#common-interview-traps">Common Interview Traps</a></li>
+<li><a href="#communication-tips">Communication Tips</a></li>
+</ol>
+<hr />
+<h2 id="interview-overview">Interview Overview</h2>
+<h3 id="format-60-minutes">Format (60 minutes)</h3>
+<ul>
+<li><strong>Coding (30 min)</strong>: Language-agnostic practical problems</li>
+<li><strong>Linux/Networking (30 min)</strong>: Q&amp;A focused on conceptual understanding</li>
+</ul>
+<h3 id="linuxnetworking-focus">Linux/Networking Focus</h3>
+<ul>
+<li>File systems (inodes, links, permissions)</li>
+<li>Process signals and states</li>
+<li>Shell behavior (globbing, parsing)</li>
+<li>TCP/UDP protocols</li>
+<li>Load balancing</li>
+<li>TLS basics</li>
+</ul>
+<hr />
+<h2 id="linux-fundamentals">Linux Fundamentals</h2>
+<h3 id="file-system-operations">File System Operations</h3>
+<h4 id="what-happens-when-you-run-rm-filename">What Happens When You Run <code>rm filename</code></h4>
+<p><strong>Process Flow:</strong></p>
+<ol>
+<li>Shell locates <code>rm</code> binary via $PATH</li>
+<li>Shell forks, child process exec's <code>rm</code></li>
+<li><code>rm</code> calls <code>unlink()</code> system call</li>
+<li>Directory entry (linking filename to inode) is removed</li>
+<li>Inode's link count is decremented</li>
+<li>If link count = 0 AND no processes have file open:</li>
+<li>Inode and data blocks marked as free in filesystem bitmaps</li>
+<li>If processes still have file open:</li>
+<li>Deletion deferred until last file descriptor closes</li>
+<li>Data isn't immediately overwritten (why file recovery works)</li>
+</ol>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li>No signals involved (SIGTERM is for killing processes, not files)</li>
+<li>Filename lives in directory entry, not inode</li>
+<li>Inode contains: metadata, permissions, timestamps, pointers to data blocks</li>
+</ul>
+<hr />
+<h4 id="hard-links-vs-symbolic-links">Hard Links vs Symbolic Links</h4>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Hard Link</th>
+<th>Symbolic Link (Symlink)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>What it is</strong></td>
+<td>Directory entry pointing to inode</td>
+<td>Special file containing path string</td>
+</tr>
+<tr>
+<td><strong>Inode</strong></td>
+<td>Shares same inode as target</td>
+<td>Has its own inode</td>
+</tr>
+<tr>
+<td><strong>After deleting target</strong></td>
+<td>Still works (shares inode)</td>
+<td>Becomes "dangling" (broken link)</td>
+</tr>
+<tr>
+<td><strong>Cross filesystem</strong></td>
+<td>❌ No (different inode tables)</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><strong>Link to directories</strong></td>
+<td>❌ No (prevents cycles)</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><strong>Visibility</strong></td>
+<td>Looks like regular file</td>
+<td>Shows as lrwxrwxrwx with -&gt; target</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Commands:</strong></p>
+<pre><code class="language-bash"># Hard link
+ln file1.txt file2.txt
+ls -i file1.txt file2.txt  # Same inode number
+
+# Symbolic link
+ln -s file1.txt file2_link
+ls -i file1.txt file2_link  # Different inode numbers
+</code></pre>
+<p><strong>When target is deleted:</strong></p>
+<ul>
+<li><strong>Hard link</strong>: Continues to work (both are equal directory entries)</li>
+<li><strong>Symlink</strong>: Breaks (path no longer exists)</li>
+</ul>
+<hr />
+<h4 id="recovering-from-chmod-000-binchmod">Recovering from <code>chmod 000 /bin/chmod</code></h4>
+<p><strong>Problem:</strong> Even root cannot execute a file with no execute permissions.</p>
+<p><strong>Solutions (in order of preference):</strong></p>
+<pre><code class="language-bash"># Method 1: Use Python (quickest)
+python3 -c &quot;import os; os.chmod('/bin/chmod', 0o755)&quot;
+
+# Method 2: Use Perl
+perl -e 'chmod 0755, &quot;/bin/chmod&quot;'
+
+# Method 3: Use busybox
+busybox chmod 755 /bin/chmod
+
+# Method 4: Use install command
+install -m 755 /bin/chown /tmp/chmod_backup
+install -m 755 /tmp/chmod_backup /bin/chmod
+
+# Method 5: Copy from another location
+cp /usr/bin/chmod /bin/chmod  # If available elsewhere
+</code></pre>
+<p><strong>Why this works:</strong> Interpreted languages call <code>chmod()</code> system call directly without needing to execute the <code>/bin/chmod</code> binary.</p>
+<hr />
+<h3 id="process-management">Process Management</h3>
+<h4 id="process-states">Process States</h4>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Can Kill?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Running</td>
+<td>R</td>
+<td>Executing or ready to run</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Sleeping (Interruptible)</td>
+<td>S</td>
+<td>Waiting for event, can be interrupted</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Sleeping (Uninterruptible)</td>
+<td>D</td>
+<td>Waiting for I/O, cannot be interrupted</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Zombie</td>
+<td>Z</td>
+<td>Terminated but not reaped by parent</td>
+<td>❌ No (already dead)</td>
+</tr>
+<tr>
+<td>Stopped</td>
+<td>T</td>
+<td>Paused by signal (SIGSTOP/SIGTSTP)</td>
+<td>✅ Yes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="the-d-state-problem">The D State Problem</h4>
+<p><strong>What it means:</strong></p>
+<ul>
+<li>Process stuck in kernel space waiting for I/O</li>
+<li>Cannot receive signals (including SIGKILL)</li>
+<li>Usually lasts milliseconds; hours = serious problem</li>
+</ul>
+<p><strong>Common Causes:</strong></p>
+<ol>
+<li><strong>Hung NFS mount</strong> (most common)</li>
+<li>Failing disk hardware</li>
+<li>Overloaded storage backend</li>
+<li>Kernel bug or driver issue</li>
+</ol>
+<p><strong>Investigation Steps:</strong></p>
+<pre><code class="language-bash"># 1. Find processes in D state
+ps aux | awk '$8 ~ /D/ {print}'
+ps -eo pid,stat,comm,wchan | grep &quot;^[0-9]* D&quot;
+
+# 2. Check what it's waiting for (WCHAN column)
+# Common values:
+# - nfs_sync_inode_wait: NFS issue
+# - wait_on_page_writeback: Disk write
+# - io_schedule: Generic I/O wait
+
+# 3. See what files are open
+sudo lsof -p &lt;PID&gt;
+
+# 4. Check kernel stack trace
+sudo cat /proc/&lt;PID&gt;/stack
+
+# 5. I/O investigation
+iostat -x 1 5    # Look for %util at 100%, high await
+sudo iotop -o    # Per-process I/O
+cat /proc/&lt;PID&gt;/io
+
+# 6. Check mount points
+mount | grep nfs
+timeout 5 ls -l /nfs/mount/point  # Test if responsive
+dmesg | grep -i &quot;stale\|nfs&quot;
+
+# 7. Hardware issues
+dmesg | grep -i &quot;error\|fail\|ata\|scsi&quot;
+sudo smartctl -a /dev/sda
+</code></pre>
+<p><strong>Can you kill it?</strong></p>
+<ul>
+<li><strong>Direct answer: NO</strong></li>
+<li>Signals only delivered when process returns to user space</li>
+<li>Process is stuck in kernel space</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<pre><code class="language-bash"># Fix the underlying I/O issue
+sudo umount -f /nfs/mount   # Force unmount NFS
+sudo umount -l /nfs/mount   # Lazy unmount
+
+# For NFS, use soft mounts in future
+mount -t nfs -o soft,timeo=10,intr server:/export /mnt
+
+# Last resort: Reboot (but fix root cause!)
+</code></pre>
+<hr />
+<h4 id="signals">Signals</h4>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Number</th>
+<th>Default Action</th>
+<th>Can Catch?</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SIGTERM</td>
+<td>15</td>
+<td>Terminate</td>
+<td>✅ Yes</td>
+<td>Graceful shutdown (default)</td>
+</tr>
+<tr>
+<td>SIGKILL</td>
+<td>9</td>
+<td>Terminate</td>
+<td>❌ No</td>
+<td>Force kill</td>
+</tr>
+<tr>
+<td>SIGSTOP</td>
+<td>19</td>
+<td>Stop</td>
+<td>❌ No</td>
+<td>Pause process</td>
+</tr>
+<tr>
+<td>SIGCONT</td>
+<td>18</td>
+<td>Continue</td>
+<td>✅ Yes</td>
+<td>Resume stopped process</td>
+</tr>
+<tr>
+<td>SIGTSTP</td>
+<td>20</td>
+<td>Stop</td>
+<td>✅ Yes</td>
+<td>Ctrl+Z (can catch for cleanup)</td>
+</tr>
+<tr>
+<td>SIGINT</td>
+<td>2</td>
+<td>Terminate</td>
+<td>✅ Yes</td>
+<td>Ctrl+C (interrupt)</td>
+</tr>
+<tr>
+<td>SIGHUP</td>
+<td>1</td>
+<td>Terminate</td>
+<td>✅ Yes</td>
+<td>Hangup / reload config</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Important Corrections:</strong></p>
+<ul>
+<li><strong>SIGINT does NOT pause</strong> - it requests termination</li>
+<li><strong>SIGSTOP/SIGTSTP pause</strong> processes</li>
+<li><strong>SIGTERM is graceful</strong>, SIGKILL is forceful</li>
+</ul>
+<p><strong>Commands:</strong></p>
+<pre><code class="language-bash">kill -l                    # List all signals
+kill PID                   # SIGTERM (default, graceful)
+kill -TERM PID            # Same as above
+kill -KILL PID            # Force kill (cannot be caught)
+kill -9 PID               # Same as SIGKILL
+kill -STOP PID            # Pause
+kill -CONT PID            # Resume
+kill -HUP PID             # Reload config (many daemons support this)
+
+# Process groups (negative PID)
+kill -TERM -1234          # Kill entire process group 1234
+</code></pre>
+<hr />
+<h4 id="process-group-signals">Process Group Signals</h4>
+<p><strong>Difference between <code>kill PID</code> and <code>kill -PID</code>:</strong></p>
+<pre><code class="language-bash"># kill PID: Send signal to single process
+kill -TERM 1234
+
+# kill -PID: Send signal to entire process group
+kill -TERM -1234
+
+# This kills parent AND all children with same PGID
+</code></pre>
+<p><strong>When to use process groups:</strong></p>
+<ul>
+<li>Killing parent with all children (shell scripts with subprocesses)</li>
+<li>Stopping entire job (terminal job control)</li>
+<li>Related to terminal sessions and <code>nohup</code></li>
+</ul>
+<p><strong>Terminal sessions:</strong></p>
+<pre><code class="language-bash"># When you logout, terminal sends SIGHUP to session leader
+# Session leader forwards to process group
+# All processes in group receive SIGHUP
+
+# nohup protects from this:
+nohup ./long_running_script.sh &amp;
+# Process ignores SIGHUP, survives logout
+
+# Alternative: disown
+./script.sh &amp;
+disown
+
+# Or use screen/tmux
+screen -S mysession
+# Detach with Ctrl+A, D
+# Reattach with: screen -r mysession
+</code></pre>
+<hr />
+<h4 id="investigating-high-cpu-usage">Investigating High CPU Usage</h4>
+<p><strong>Systematic Approach:</strong></p>
+<pre><code class="language-bash"># Step 1: Identify the process
+top -o %CPU
+htop
+ps aux --sort=-%cpu | head -n 10
+
+# Note: %CPU can exceed 100% on multi-core
+# 400% = using 4 cores fully
+
+# Step 2: Get process details
+cat /proc/PID/status
+cat /proc/PID/cmdline | tr '\0' ' '
+ps -p PID -o args
+
+# Step 3: Understand what it's doing
+strace -c -p PID  # System call summary
+# High CPU with few syscalls = pure computation/infinite loop
+
+# Step 4: Stack trace
+pstack PID           # C/C++
+jstack PID           # Java
+py-spy dump -p PID   # Python
+
+# Step 5: Check threads
+ps -T -p PID
+top -H -p PID
+cat /proc/PID/task/*/status | grep -E &quot;^(Name|State):&quot;
+
+# Step 6: Profile the application
+perf top -p PID
+perf record -p PID -g
+perf report
+
+# Step 7: Check system resources
+vmstat 1
+# us = user CPU, sy = system CPU
+# id = idle, wa = I/O wait
+
+mpstat -P ALL 1      # Per-core CPU
+pidstat -w -p PID 1  # Context switches
+iotop -p PID         # I/O activity
+</code></pre>
+<p><strong>Common Causes:</strong></p>
+<ul>
+<li>Infinite loop or logic bug (high CPU, minimal syscalls)</li>
+<li>Inefficient algorithm (O(n²) processing large dataset)</li>
+<li>Busy-wait polling loop</li>
+<li>Lock contention in multi-threaded app</li>
+</ul>
+<hr />
+<h3 id="disk-space-issues">Disk Space Issues</h3>
+<h4 id="disk-full-but-df-h-shows-space">Disk Full but <code>df -h</code> Shows Space</h4>
+<p><strong>Common Scenarios:</strong></p>
+<p><strong>1. Deleted Files Still Open (Most Common)</strong></p>
+<pre><code class="language-bash"># Problem: File deleted but process still has it open
+# df counts it, du doesn't see it
+
+# Find them:
+lsof +L1
+lsof | grep deleted
+
+# Example output:
+# java  1234  app  10w  REG  253,1  5.0G  0  /var/log/app.log (deleted)
+
+# Solutions:
+# Option 1: Restart the process
+systemctl restart application
+
+# Option 2: Truncate the file descriptor
+truncate -s 0 /proc/PID/fd/FD_NUMBER
+
+# Option 3: Send SIGHUP (many daemons reopen logs)
+kill -HUP PID
+</code></pre>
+<p><strong>2. Inode Exhaustion</strong></p>
+<pre><code class="language-bash"># Check inode usage
+df -i
+
+# Output showing problem:
+# Filesystem      Inodes   IUsed   IFree IUse% Mounted on
+# /dev/sda1      3276800 3276800       0  100% /
+
+# Find directories with most files:
+for dir in /*; do
+  echo -n &quot;$dir: &quot;;
+  find &quot;$dir&quot; -type f | wc -l;
+done | sort -t: -k2 -n
+
+# Or:
+find / -xdev -printf '%h\n' | sort | uniq -c | sort -k 1 -n
+</code></pre>
+<p><strong>3. Reserved Blocks</strong></p>
+<pre><code class="language-bash"># Ext filesystems reserve ~5% for root
+tune2fs -l /dev/sda1 | grep -i &quot;reserved block&quot;
+
+# Non-root users see &quot;disk full&quot;
+# Root sees available space
+</code></pre>
+<p><strong>4. Hidden Mount Points</strong></p>
+<pre><code class="language-bash"># Data written before mount is hidden but uses space
+echo &quot;hidden&quot; &gt; /mnt/test.txt
+mount /dev/sdb1 /mnt    # Hides test.txt
+
+# To find:
+umount /mnt
+ls /mnt                 # Now you see hidden files
+</code></pre>
+<p><strong>Debugging Script:</strong></p>
+<pre><code class="language-bash">#!/bin/bash
+# Quick disk space diagnostic
+
+echo &quot;=== Disk Space ===&quot;
+df -h /
+
+echo -e &quot;\n=== Inode Usage ===&quot;
+df -i /
+
+echo -e &quot;\n=== Deleted but Open Files ===&quot;
+lsof +L1 2&gt;/dev/null | grep -v &quot;0t0&quot; | grep &quot;REG&quot;
+
+echo -e &quot;\n=== Largest Directories ===&quot;
+du -sh /* 2&gt;/dev/null | sort -h | tail -10
+
+echo -e &quot;\n=== Compare df vs du ===&quot;
+echo &quot;df reports: $(df -h / | tail -1 | awk '{print $3}') used&quot;
+echo &quot;du reports: $(du -sh / 2&gt;/dev/null | awk '{print $1}') used&quot;
+</code></pre>
+<hr />
+<h2 id="networking-fundamentals">Networking Fundamentals</h2>
+<h3 id="tcp-three-way-handshake">TCP Three-Way Handshake</h3>
+<p><strong>The Process:</strong></p>
+<pre><code>Client                          Server
+  |                               |
+  |  [1] SYN (seq=X)             |
+  |-----------------------------&gt;|  State: LISTEN → SYN-RECEIVED
+  |  State: SYN-SENT             |
+  |                              |
+  |  [2] SYN-ACK (seq=Y, ack=X+1)|
+  |&lt;-----------------------------|
+  |                              |
+  |  [3] ACK (seq=X+1, ack=Y+1)  |
+  |-----------------------------&gt;|
+  |                              |
+  (State: ESTABLISHED)      (State: ESTABLISHED)
+</code></pre>
+<p><strong>What Each Step Does:</strong></p>
+<ol>
+<li>
+<p><strong>Client sends SYN:</strong></p>
+</li>
+<li>
+<p>Includes initial sequence number (ISN) = X</p>
+</li>
+<li>Client enters SYN-SENT state</li>
+<li>
+<p>"I want to connect, here's my starting sequence"</p>
+</li>
+<li>
+<p><strong>Server sends SYN-ACK:</strong></p>
+</li>
+<li>
+<p>Server's sequence number = Y</p>
+</li>
+<li>Acknowledgment = X+1</li>
+<li>Server enters SYN-RECEIVED state</li>
+<li>
+<p>"Got your SYN, here's my starting sequence"</p>
+</li>
+<li>
+<p><strong>Client sends ACK:</strong></p>
+</li>
+<li>Sequence = X+1, Acknowledgment = Y+1</li>
+<li>Both enter ESTABLISHED state</li>
+<li>"Got your SYN-ACK, let's send data"</li>
+</ol>
+<hr />
+<h4 id="if-syn-ack-is-lost">If SYN-ACK is Lost</h4>
+<p><strong>What Happens:</strong></p>
+<pre><code>Client                          Server
+  |  [1] SYN (seq=X)             |
+  |-----------------------------&gt;|
+  |  [2] SYN-ACK ✗✗✗ LOST ✗✗✗    |
+  |                              |
+  | ... timeout (1-3 seconds)... | (Server waiting in SYN-RECEIVED)
+  |                              |
+  |  [1] SYN RETRANSMIT          |
+  |-----------------------------&gt;|
+  |  [2] SYN-ACK                 |
+  |&lt;-----------------------------|
+  |  [3] ACK                     |
+  |-----------------------------&gt;|
+</code></pre>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li>Client's retransmission timer expires</li>
+<li>Client retransmits <strong>the same SYN</strong> (same seq=X)</li>
+<li>Exponential backoff: 1s, 2s, 4s, 8s, 16s, 32s...</li>
+<li>After 5-6 attempts (configurable), gives up</li>
+<li>Server also has timer for missing ACK</li>
+<li>No data flows until handshake completes</li>
+</ul>
+<p><strong>Tuning:</strong></p>
+<pre><code class="language-bash"># Number of SYN retries before giving up
+cat /proc/sys/net/ipv4/tcp_syn_retries  # Default: 6
+</code></pre>
+<hr />
+<h3 id="tcp-vs-udp">TCP vs UDP</h3>
+<h4 id="tcp-retransmission">TCP Retransmission</h4>
+<p><strong>How it Works:</strong></p>
+<ul>
+<li>TCP is reliable and connection-oriented</li>
+<li>Every segment has a sequence number</li>
+<li>Receiver sends ACKs for received segments</li>
+<li>Sender maintains retransmission timer for unacked segments</li>
+</ul>
+<p><strong>When Retransmission Happens:</strong></p>
+<ol>
+<li><strong>Timeout:</strong> ACK not received before timer expires</li>
+<li><strong>Duplicate ACKs:</strong> Receiver sends duplicate ACKs when gap detected</li>
+<li>3 duplicate ACKs trigger <strong>fast retransmit</strong></li>
+</ol>
+<p><strong>What Gets Retransmitted:</strong></p>
+<ul>
+<li>Exact same segment with same sequence number</li>
+<li>Receiver uses sequence numbers to:</li>
+<li>Reassemble data in order</li>
+<li>Detect and discard duplicates</li>
+</ul>
+<p><strong>Performance Impact:</strong></p>
+<ul>
+<li>Reduces throughput</li>
+<li>TCP adjusts congestion window</li>
+<li>RTT (Round Trip Time) affects retransmission delay</li>
+</ul>
+<p><strong>Causes:</strong></p>
+<ul>
+<li>Network congestion</li>
+<li>Packet corruption</li>
+<li>Packet loss</li>
+<li>Out-of-order delivery</li>
+</ul>
+<hr />
+<h4 id="udp-packet-loss">UDP Packet Loss</h4>
+<p><strong>How it Works:</strong></p>
+<ul>
+<li>UDP is unreliable and connectionless</li>
+<li>No acknowledgments, no sequence numbers</li>
+<li>No retransmission at transport layer</li>
+<li>Sender has no idea packet was lost</li>
+</ul>
+<p><strong>When Packets Are Lost:</strong></p>
+<ul>
+<li>Sender doesn't know</li>
+<li>Receiver simply never gets data</li>
+<li>No automatic recovery</li>
+</ul>
+<p><strong>Application Responsibility:</strong></p>
+<ul>
+<li>If reliability needed, app must implement it</li>
+<li>Examples:</li>
+<li><strong>QUIC</strong> (HTTP/3): Reliability over UDP</li>
+<li><strong>RTP</strong> (VoIP): Uses sequence numbers but may not retransmit</li>
+<li><strong>DNS</strong>: Application-level retry after timeout</li>
+</ul>
+<p><strong>Why Use UDP Despite Loss:</strong></p>
+<ol>
+<li>Lower latency (no connection setup, no ACK waiting)</li>
+<li>Less overhead (8-byte header vs 20+ for TCP)</li>
+<li>Better for real-time (old data is useless in live video)</li>
+<li>Multicast/broadcast capable</li>
+</ol>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>DNS queries (retry is fine)</li>
+<li>VoIP/video streaming (some loss acceptable)</li>
+<li>Gaming (speed &gt; perfect accuracy)</li>
+<li>DHCP (simple request/response)</li>
+</ul>
+<hr />
+<h3 id="tcp-connection-states">TCP Connection States</h3>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LISTEN</td>
+<td>Server waiting for connections</td>
+</tr>
+<tr>
+<td>SYN-SENT</td>
+<td>Client sent SYN, waiting for SYN-ACK</td>
+</tr>
+<tr>
+<td>SYN-RECEIVED</td>
+<td>Server sent SYN-ACK, waiting for ACK</td>
+</tr>
+<tr>
+<td>ESTABLISHED</td>
+<td>Connection active, data flowing</td>
+</tr>
+<tr>
+<td>FIN-WAIT-1</td>
+<td>Sent FIN, waiting for ACK</td>
+</tr>
+<tr>
+<td>FIN-WAIT-2</td>
+<td>Received ACK of FIN, waiting for peer's FIN</td>
+</tr>
+<tr>
+<td>TIME-WAIT</td>
+<td>Connection closed, waiting for stray packets (2MSL)</td>
+</tr>
+<tr>
+<td>CLOSE-WAIT</td>
+<td>Peer closed connection, local not yet closed</td>
+</tr>
+<tr>
+<td>LAST-ACK</td>
+<td>Sent FIN after CLOSE-WAIT, waiting for ACK</td>
+</tr>
+<tr>
+<td>CLOSING</td>
+<td>Both sides closing simultaneously</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Important States:</strong></p>
+<ul>
+<li><strong>CLOSE-WAIT</strong>: Application not closing sockets properly</li>
+<li><strong>TIME-WAIT</strong>: Normal after connection close (prevents packet confusion)</li>
+</ul>
+<hr />
+<h3 id="netstat-vs-ss">netstat vs ss</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>netstat</th>
+<th>ss</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speed</td>
+<td>Slow (reads /proc)</td>
+<td>Fast (netlink sockets)</td>
+</tr>
+<tr>
+<td>Data Source</td>
+<td>/proc/net/* files</td>
+<td>Direct kernel query</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Heavy with many connections</td>
+<td>Minimal overhead</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Legacy/deprecated</td>
+<td>Actively maintained</td>
+</tr>
+<tr>
+<td>Filtering</td>
+<td>Limited (need grep)</td>
+<td>Built-in powerful filters</td>
+</tr>
+<tr>
+<td>TCP Details</td>
+<td>Basic</td>
+<td>Detailed (RTT, cwnd, retrans)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Basic Usage:</strong></p>
+<pre><code class="language-bash"># List all TCP/UDP listening ports
+netstat -tuln
+ss -tuln
+
+# With process information (requires root)
+sudo netstat -tulnp
+sudo ss -tulnp
+
+# All connections (listening + established)
+netstat -tuan
+ss -tuan
+</code></pre>
+<p><strong>ss Advanced Features:</strong></p>
+<pre><code class="language-bash"># Extended TCP information
+ss -ti
+
+# Output includes:
+# - rto: Retransmission timeout
+# - rtt: Round-trip time
+# - cwnd: Congestion window
+# - bytes_retrans: Retransmitted bytes
+# - send rate, delivery rate
+
+# Powerful filtering
+ss -tn dst :443                    # Connections to port 443
+ss -tn src 192.168.1.100          # From specific IP
+ss -tn state established          # Only established
+ss -tn state time-wait            # Only TIME-WAIT
+ss -tn '( dport = :80 or dport = :443 )' state established
+
+# Summary statistics
+ss -s
+
+# Memory usage per socket
+ss -tm
+
+# Timers
+ss -to
+</code></pre>
+<p><strong>Performance Comparison:</strong></p>
+<pre><code class="language-bash"># On system with 50,000 connections:
+time netstat -tan &gt; /dev/null
+# real    0m2.341s
+
+time ss -tan &gt; /dev/null
+# real    0m0.123s
+</code></pre>
+<p><strong>When to Use:</strong></p>
+<ul>
+<li><strong>netstat:</strong> Legacy systems, quick routing table checks</li>
+<li><strong>ss:</strong> Modern systems (faster, more powerful), production troubleshooting, detailed TCP metrics</li>
+</ul>
+<hr />
+<h2 id="troubleshooting-scenarios">Troubleshooting Scenarios</h2>
+<h3 id="connection-reset-by-peer">Connection Reset by Peer</h3>
+<p><strong>What RST Means:</strong></p>
+<ul>
+<li>TCP RST packet abruptly closes connection</li>
+<li>No graceful FIN handshake</li>
+<li>Connection immediately destroyed</li>
+</ul>
+<p><strong>Common Causes:</strong></p>
+<ol>
+<li>Application explicitly closed connection</li>
+<li>Firewall actively rejecting</li>
+<li>Connection tracking table full</li>
+<li>Kernel limits (file descriptors, socket buffers)</li>
+<li>TCP backlog full</li>
+</ol>
+<hr />
+<h4 id="diagnostic-flow">Diagnostic Flow</h4>
+<p><strong>Step 1: Capture the RST</strong></p>
+<pre><code class="language-bash"># Capture RST packets
+sudo tcpdump -i any -nn 'tcp[tcpflags] &amp; tcp-rst != 0' -w rst.pcap
+
+# Specific port
+sudo tcpdump -i any -nn port 8080 and 'tcp[tcpflags] &amp; tcp-rst != 0'
+
+# Analyze
+tcpdump -r rst.pcap -vvv -nn
+
+# Look for:
+# - Which side sent RST (client or server)
+# - When in connection lifecycle
+# - Sequence number issues
+</code></pre>
+<p><strong>Step 2: Check Application</strong></p>
+<pre><code class="language-bash"># Application running?
+systemctl status myapp
+ps aux | grep myapp
+
+# Application logs
+journalctl -u myapp -f --since &quot;5 minutes ago&quot;
+
+# Look for:
+# - &quot;Connection closed&quot;, &quot;Timeout&quot;
+# - &quot;Too many connections&quot;
+# - Exception traces
+
+# Metrics (if available)
+curl http://localhost:8080/metrics
+</code></pre>
+<p><strong>Step 3: Check Connection Tracking</strong></p>
+<pre><code class="language-bash"># Current count vs maximum
+cat /proc/sys/net/netfilter/nf_conntrack_count
+cat /proc/sys/net/netfilter/nf_conntrack_max
+
+# Usage percentage
+echo &quot;scale=2; $(cat /proc/sys/net/netfilter/nf_conntrack_count) / $(cat /proc/sys/net/netfilter/nf_conntrack_max) * 100&quot; | bc
+
+# If close to 100%, this is likely the problem!
+
+# Statistics
+cat /proc/net/stat/nf_conntrack
+# Look for 'drop' or 'early_drop' increasing
+
+# View table
+conntrack -L | head -20
+
+# Count by state
+conntrack -L | awk '{print $4}' | sort | uniq -c | sort -rn
+
+# Temporary fix:
+sudo sysctl -w net.netfilter.nf_conntrack_max=262144
+
+# Permanent in /etc/sysctl.conf:
+net.netfilter.nf_conntrack_max = 262144
+</code></pre>
+<p><strong>Step 4: Check Firewall</strong></p>
+<pre><code class="language-bash"># Check for REJECT/DROP rules
+sudo iptables -L -n -v | grep -E &quot;REJECT|DROP&quot;
+
+# Specific chains
+sudo iptables -L INPUT -n -v
+sudo iptables -L FORWARD -n -v
+
+# Count dropped packets
+sudo iptables -L -n -v -Z  # Zero counters
+# Wait, then check again
+sudo iptables -L -n -v
+
+# Rate limiting
+sudo iptables -L -n -v | grep limit
+</code></pre>
+<p><strong>Step 5: Check with ss</strong></p>
+<pre><code class="language-bash"># Retransmissions
+ss -ti | grep bytes_retrans | grep -v &quot;bytes_retrans:0&quot;
+
+# Connection states
+ss -tan state established | wc -l
+ss -tan state time-wait | wc -l
+ss -tan state close-wait | wc -l   # Many = app not closing sockets
+
+# Summary statistics
+ss -s
+# Look for:
+# - TCPBacklogDrop
+# - ListenDrops
+# - TCPTimeouts
+</code></pre>
+<p><strong>Step 6: Check Kernel Limits</strong></p>
+<pre><code class="language-bash"># File descriptors
+ulimit -n
+cat /proc/sys/fs/file-nr
+
+# Socket buffers
+sysctl net.ipv4.tcp_rmem
+sysctl net.ipv4.tcp_wmem
+
+# TCP backlog
+sysctl net.ipv4.tcp_max_syn_backlog
+sysctl net.core.somaxconn
+
+# Statistics
+netstat -s | grep -i drop
+netstat -s | grep -i listen
+</code></pre>
+<hr />
+<h4 id="distinguishing-between-causes">Distinguishing Between Causes</h4>
+<p><strong>Application Issue:</strong></p>
+<ul>
+<li>RST in middle of established connection</li>
+<li>Application logs show errors</li>
+<li>Happens under load or after timeout</li>
+<li>Many CLOSE-WAIT states</li>
+</ul>
+<p><strong>Firewall Issue:</strong></p>
+<ul>
+<li>RST immediately after SYN or early</li>
+<li>iptables counters show REJECT/DROP increasing</li>
+<li>Consistent from certain IPs</li>
+<li>RST from server IP (not app process)</li>
+</ul>
+<p><strong>Connection Tracking Full:</strong></p>
+<ul>
+<li>nf_conntrack_count ≈ nf_conntrack_max</li>
+<li>Intermittent during high traffic</li>
+<li>dmesg shows "table full" messages</li>
+<li>Sudden RST on established connections</li>
+</ul>
+<p><strong>Kernel Limits:</strong></p>
+<ul>
+<li>netstat -s shows backlog/listen drops</li>
+<li>File descriptor limits reached</li>
+<li>Happens under high connection rate</li>
+</ul>
+<hr />
+<h3 id="quick-diagnostic-script">Quick Diagnostic Script</h3>
+<pre><code class="language-bash">#!/bin/bash
+echo &quot;=== Connection Tracking ===&quot;
+echo &quot;Count: $(cat /proc/sys/net/netfilter/nf_conntrack_count)&quot;
+echo &quot;Max: $(cat /proc/sys/net/netfilter/nf_conntrack_max)&quot;
+echo &quot;Usage: $(echo &quot;scale=2; $(cat /proc/sys/net/netfilter/nf_conntrack_count) / $(cat /proc/sys/net/netfilter/nf_conntrack_max) * 100&quot; | bc)%&quot;
+
+echo -e &quot;\n=== TCP Socket States ===&quot;
+ss -tan | awk '{print $1}' | sort | uniq -c
+
+echo -e &quot;\n=== Netstat Drops ===&quot;
+netstat -s | grep -i &quot;drop\|overflow&quot;
+
+echo -e &quot;\n=== Recent Kernel Messages ===&quot;
+dmesg | tail -20
+
+echo -e &quot;\n=== Firewall Drops ===&quot;
+iptables -L -n -v | grep -E &quot;DROP|REJECT&quot; | head -10
+</code></pre>
+<hr />
+<h2 id="essential-commands-reference">Essential Commands Reference</h2>
+<h3 id="process-investigation">Process Investigation</h3>
+<pre><code class="language-bash">ps aux --sort=-%cpu              # CPU hogs
+ps aux --sort=-%mem              # Memory hogs
+ps -eLf                          # All threads
+ps -o ppid= -p PID               # Get parent PID
+pgrep -a process_name            # Find by name
+pidof process_name               # Get PID
+/proc/PID/status                 # Detailed info
+/proc/PID/cmdline                # Command line
+/proc/PID/fd/                    # Open file descriptors
+lsof -p PID                      # Open files
+strace -c -p PID                 # System call summary
+pstack PID                       # Stack trace
+</code></pre>
+<h3 id="signals_1">Signals</h3>
+<pre><code class="language-bash">kill -l                          # List all signals
+kill -TERM PID                   # Graceful (15)
+kill -KILL PID                   # Force (9)
+kill -STOP PID                   # Pause (19)
+kill -CONT PID                   # Resume (18)
+kill -HUP PID                    # Reload config (1)
+killall process_name             # Kill by name
+pkill -f &quot;pattern&quot;               # Kill by pattern
+kill -TERM -PGID                 # Kill process group
+</code></pre>
+<h3 id="file-system">File System</h3>
+<pre><code class="language-bash">df -h                            # Disk space
+df -i                            # Inode usage
+du -sh /*                        # Directory sizes
+lsof +L1                         # Deleted but open
+lsof | grep deleted              # Alternative
+stat filename                    # File metadata
+ls -i                            # Show inode numbers
+find / -inum INODE               # Find by inode
+tune2fs -l /dev/sda1             # Filesystem info
+</code></pre>
+<h3 id="network-basic">Network - Basic</h3>
+<pre><code class="language-bash">ss -tulnp                        # All listening
+ss -tanp                         # All connections
+ss -s                            # Summary stats
+ss -ti                           # TCP details
+ss 'sport = :80'                 # Filter by port
+ss state established             # By state
+ping -c 4 host                   # Connectivity
+traceroute host                  # Path
+mtr host                         # Combined ping/trace
+</code></pre>
+<h3 id="network-advanced">Network - Advanced</h3>
+<pre><code class="language-bash">ip addr show                     # Interfaces
+ip -s link                       # Interface stats
+ip route show                    # Routing table
+netstat -s                       # Protocol stats
+tcpdump -i any host X            # Packet capture
+tcpdump -nn port 443             # Specific port
+lsof -i :PORT                    # What's using port
+nc -zv host port                 # Test connection
+dig domain                       # DNS lookup
+conntrack -L                     # Connection tracking table
+</code></pre>
+<h3 id="performance-monitoring">Performance Monitoring</h3>
+<pre><code class="language-bash">top / htop                       # Real-time overview
+vmstat 1                         # Virtual memory
+iostat -x 1                      # Disk I/O
+mpstat -P ALL 1                  # Per-CPU stats
+sar -u 1 10                      # Historical CPU
+iotop                            # I/O by process
+iftop                            # Network by connection
+dstat                            # Combined view
+</code></pre>
+<h3 id="system-information">System Information</h3>
+<pre><code class="language-bash">uname -a                         # Kernel version
+cat /etc/os-release              # OS version
+lscpu                            # CPU info
+free -h                          # Memory
+uptime                           # Load average
+dmesg | tail                     # Kernel messages
+journalctl -xe                   # System logs
+systemctl status service         # Service status
+</code></pre>
+<hr />
+<h2 id="common-interview-traps">Common Interview Traps</h2>
+<h3 id="avoid-these-mistakes">❌ Avoid These Mistakes</h3>
+<p><strong>Trap 1: "I'd restart the server"</strong></p>
+<ul>
+<li>✅ Better: Show systematic troubleshooting first</li>
+</ul>
+<p><strong>Trap 2: Wrong signals</strong></p>
+<ul>
+<li>❌ "SIGINT pauses processes"</li>
+<li>✅ SIGSTOP/SIGTSTP pause; SIGINT terminates</li>
+</ul>
+<p><strong>Trap 3: Vague answers</strong></p>
+<ul>
+<li>❌ "I'd check the logs"</li>
+<li>✅ "I'd check application logs with <code>journalctl -u service -f</code> and kernel messages with <code>dmesg</code>"</li>
+</ul>
+<p><strong>Trap 4: Forgetting permissions</strong></p>
+<ul>
+<li>Many commands need sudo: ss -p, lsof, strace, tcpdump</li>
+<li>Mention this in answers</li>
+</ul>
+<p><strong>Trap 5: Tool confusion</strong></p>
+<ul>
+<li>❌ "netstat is better than ss"</li>
+<li>✅ ss is faster and more powerful</li>
+</ul>
+<hr />
+<h2 id="communication-tips">Communication Tips</h2>
+<h3 id="structure-your-answers">Structure Your Answers</h3>
+<ol>
+<li><strong>Acknowledge:</strong> "That's a good question about..."</li>
+<li><strong>State approach:</strong> "I'd begin by checking..."</li>
+<li><strong>Show systematic thinking:</strong> "First... then... finally..."</li>
+<li><strong>Mention trade-offs:</strong> "This approach is fast but less detailed"</li>
+<li><strong>Admit uncertainty:</strong> "I'm not certain, but I believe..." is better than guessing</li>
+</ol>
+<h3 id="think-out-loud">Think Out Loud</h3>
+<ul>
+<li>"I'm considering whether this is a network or application issue..."</li>
+<li>"Let me work through the TCP state machine..."</li>
+<li>"That's interesting, I haven't seen this exact scenario, but I'd approach it by..."</li>
+</ul>
+<h3 id="ask-clarifying-questions">Ask Clarifying Questions</h3>
+<ul>
+<li>"Is this a production system where I need to avoid service disruption?"</li>
+<li>"Do I have root access?"</li>
+<li>"Are there any monitoring tools already in place?"</li>
+<li>"What's the typical load on this system?"</li>
+</ul>
+<hr />
+<h2 id="key-concepts-summary">Key Concepts Summary</h2>
+<h3 id="inodes">Inodes</h3>
+<ul>
+<li>Store metadata (permissions, timestamps, size, pointers to data)</li>
+<li>Do NOT store filename or file content</li>
+<li>Filename → Directory Entry → Inode → Data Blocks</li>
+<li>Running out of inodes = can't create files despite free space</li>
+<li>Check with: <code>df -i</code></li>
+<li>View with: <code>ls -i</code></li>
+</ul>
+<h3 id="file-deletion">File Deletion</h3>
+<ul>
+<li><code>rm</code> calls <code>unlink()</code> system call</li>
+<li>Removes directory entry, decrements inode link count</li>
+<li>Data deleted when link count = 0 AND no processes have file open</li>
+<li>Data not immediately overwritten (file recovery possible)</li>
+</ul>
+<h3 id="hard-links-vs-symlinks">Hard Links vs Symlinks</h3>
+<ul>
+<li><strong>Hard:</strong> Same inode, survives target deletion, same filesystem only</li>
+<li><strong>Symlink:</strong> Own inode with path string, breaks if target deleted, cross-filesystem OK</li>
+</ul>
+<h3 id="process-states_1">Process States</h3>
+<ul>
+<li><strong>R:</strong> Running/runnable</li>
+<li><strong>S:</strong> Sleeping (interruptible)</li>
+<li><strong>D:</strong> Sleeping (uninterruptible) - CANNOT BE KILLED</li>
+<li><strong>Z:</strong> Zombie (already dead, waiting for parent to reap)</li>
+<li><strong>T:</strong> Stopped (SIGSTOP/SIGTSTP)</li>
+</ul>
+<h3 id="signals_2">Signals</h3>
+<ul>
+<li><strong>SIGTERM (15):</strong> Graceful shutdown (catchable, default)</li>
+<li><strong>SIGKILL (9):</strong> Force kill (uncatchable)</li>
+<li><strong>SIGSTOP (19):</strong> Pause (uncatchable)</li>
+<li><strong>SIGCONT (18):</strong> Resume</li>
+<li><strong>SIGHUP (1):</strong> Hangup/reload config</li>
+<li><strong>SIGINT (2):</strong> Interrupt (Ctrl+C)</li>
+<li><strong>SIGTSTP (20):</strong> Stop (Ctrl+Z, catchable)</li>
+</ul>
+<h3 id="tcp-states">TCP States</h3>
+<ul>
+<li><strong>LISTEN:</strong> Waiting for connections</li>
+<li><strong>SYN-SENT/SYN-RECEIVED:</strong> Handshake in progress</li>
+<li><strong>ESTABLISHED:</strong> Active connection</li>
+<li><strong>TIME-WAIT:</strong> Connection closed, waiting 2MSL for stray packets</li>
+<li><strong>CLOSE-WAIT:</strong> Remote closed, local hasn't closed yet (app issue if many)</li>
+</ul>
+<h3 id="tcp-vs-udp_1">TCP vs UDP</h3>
+<ul>
+<li><strong>TCP:</strong> Reliable, connection-oriented, retransmits lost packets, higher overhead</li>
+<li><strong>UDP:</strong> Unreliable, connectionless, no retransmission, lower latency, less overhead</li>
+<li><strong>TCP use:</strong> HTTP, SSH, file transfer (need reliability)</li>
+<li><strong>UDP use:</strong> DNS, VoIP, streaming, gaming (need speed)</li>
+</ul>
+<h3 id="netstat-vs-ss_1">netstat vs ss</h3>
+<ul>
+<li><strong>ss:</strong> Faster (netlink), more powerful filtering, detailed TCP info, modern</li>
+<li><strong>netstat:</strong> Slower (/proc), basic info, legacy, deprecated</li>
+</ul>
+<h3 id="disk-space-issues_1">Disk Space Issues</h3>
+<ol>
+<li><strong>Deleted files open:</strong> <code>lsof +L1</code></li>
+<li><strong>Inode exhaustion:</strong> <code>df -i</code></li>
+<li><strong>Reserved blocks:</strong> <code>tune2fs -l</code></li>
+<li><strong>Hidden mounts:</strong> <code>umount</code> and check</li>
+</ol>
+<h3 id="connection-reset">Connection Reset</h3>
+<ul>
+<li><strong>Application:</strong> RST mid-connection, logs show errors, many CLOSE-WAIT</li>
+<li><strong>Firewall:</strong> RST after SYN, iptables counters increasing</li>
+<li><strong>Connection tracking:</strong> nf_conntrack_count near max, dmesg warnings</li>
+<li><strong>Kernel limits:</strong> netstat -s shows drops, file descriptor exhaustion</li>
+</ul>
+<hr />
+<h2 id="practice-scenarios">Practice Scenarios</h2>
+<h3 id="scenario-1-mysterious-disk-usage">Scenario 1: Mysterious Disk Usage</h3>
+<pre><code>Problem: Server reports 95% disk usage, but du -sh / shows only 60% used
+
+Your approach:
+1. Check for deleted files still open: lsof +L1
+2. Check inode usage: df -i
+3. Compare df vs du output
+4. Check for hidden mounts
+5. Look for large logs being rotated but held open
+
+Expected answer: Identify root cause and explain recovery steps
+</code></pre>
+<h3 id="scenario-2-unkillable-process">Scenario 2: Unkillable Process</h3>
+<pre><code>Problem: Process consuming 100% CPU, won't respond to kill -9
+
+Your approach:
+1. Check process state: ps aux | grep PID
+2. If state is D: investigate I/O (iostat, lsof -p PID, /proc/PID/stack)
+3. If state is not D: verify you're killing correct PID, check if zombie
+4. Explain why D state can't be killed
+5. Propose solutions based on root cause
+
+Expected answer: Systematic diagnosis, understand kernel vs userspace
+</code></pre>
+<h3 id="scenario-3-intermittent-connection-failures">Scenario 3: Intermittent Connection Failures</h3>
+<pre><code>Problem: Web app occasionally returns &quot;Connection reset by peer&quot;
+
+Your approach:
+1. Capture RST packets: tcpdump
+2. Check connection tracking: nf_conntrack_count vs max
+3. Check application logs
+4. Use ss to check TCP health: bytes_retrans, socket states
+5. Check firewall rules: iptables -L -n -v
+6. Check kernel limits: netstat -s, ulimit
+
+Expected answer: Distinguish between app, firewall, and kernel causes
+</code></pre>
+<h3 id="scenario-4-slow-file-transfer">Scenario 4: Slow File Transfer</h3>
+<pre><code>Problem: scp transfer between servers is very slow despite high bandwidth
+
+Your approach:
+1. Check network basics: ping, traceroute
+2. Check interface stats: ip -s link, ethtool
+3. Check TCP performance: ss -ti for RTT, cwnd, retransmissions
+4. Test throughput: iperf3
+5. Check for packet loss: netstat -s | grep retrans
+6. Consider TCP tuning, MTU issues, SSH cipher overhead
+
+Expected answer: Layer-by-layer network troubleshooting
+</code></pre>
+<hr />
+<h2 id="mongodb-specific-context">MongoDB-Specific Context</h2>
+<h3 id="what-mongodb-values">What MongoDB Values</h3>
+<p>Based on their engineering principles:</p>
+<p><strong>1. Resilience</strong></p>
+<ul>
+<li>Think about failure modes</li>
+<li>How would you monitor this?</li>
+<li>What happens when it breaks?</li>
+<li>"Design for failure" mentality</li>
+</ul>
+<p><strong>2. Operational Excellence</strong></p>
+<ul>
+<li>Automation over manual intervention</li>
+<li>Observability and debugging</li>
+<li>Learning from incidents</li>
+</ul>
+<p><strong>3. Systematic Thinking</strong></p>
+<ul>
+<li>Structured troubleshooting approach</li>
+<li>Root cause analysis</li>
+<li>Reproducible investigations</li>
+</ul>
+<h3 id="during-interview">During Interview</h3>
+<p><strong>Show operational thinking:</strong></p>
+<ul>
+<li>"I'd want to set up monitoring for this metric..."</li>
+<li>"To prevent this in future, I'd implement..."</li>
+<li>"This would let me debug issues without impacting users..."</li>
+</ul>
+<p><strong>Consider distributed systems:</strong></p>
+<ul>
+<li>"In a distributed environment, I'd also check..."</li>
+<li>"Network partitions could cause..."</li>
+<li>"Eventual consistency means..."</li>
+</ul>
+<p><strong>Focus on reliability:</strong></p>
+<ul>
+<li>"The safest approach would be..."</li>
+<li>"To avoid downtime, I'd first..."</li>
+<li>"This has lower risk because..."</li>
+</ul>
+<hr />
+<h2 id="day-before-checklist">Day-Before Checklist</h2>
+<h3 id="mental-preparation">Mental Preparation</h3>
+<p><strong>Remember:</strong></p>
+<ul>
+<li>Partial answers with reasoning &gt; wrong confident answers</li>
+<li>It's OK to say "I'm not sure, but here's how I'd investigate..."</li>
+<li>Think out loud - interviewers want to see your process</li>
+<li>Ask clarifying questions - shows thoroughness</li>
+<li>Communication matters as much as technical knowledge</li>
+</ul>
+<p><strong>Get Good Sleep:</strong></p>
+<ul>
+<li>This interview rewards clear thinking over memorization</li>
+<li>Being well-rested helps with systematic reasoning</li>
+<li>Don't cram the night before</li>
+</ul>
+<hr />
+<h2 id="quick-reference-most-important-commands">Quick Reference - Most Important Commands</h2>
+<h3 id="the-top-20-you-must-know">The "Top 20" You Must Know</h3>
+<pre><code class="language-bash"># Process management
+ps aux --sort=-%cpu
+top / htop
+kill -TERM PID
+kill -STOP PID
+/proc/PID/status
+
+# File system
+df -h / df -i
+du -sh /*
+lsof +L1
+ls -i
+stat filename
+
+# Networking
+ss -tulnp
+ss -ti
+ping / traceroute
+tcpdump -i any port 80
+ip addr show
+
+# Troubleshooting
+dmesg | tail
+journalctl -xe
+strace -c -p PID
+iostat -x 1
+vmstat 1
+</code></pre>
+<h3 id="quick-answers-to-common-questions">Quick Answers to Common Questions</h3>
+<p><strong>"Why can't I create files despite free space?"</strong>
+→ Check <code>df -i</code> for inode exhaustion</p>
+<p><strong>"Why can't I kill this process?"</strong>
+→ Check state with <code>ps aux | grep PID</code>. If D state, it's in uninterruptible I/O</p>
+<p><strong>"What's using all my disk space?"</strong>
+→ Check <code>lsof +L1</code> for deleted but open files</p>
+<p><strong>"Connections keep resetting"</strong>
+→ Check connection tracking: <code>cat /proc/sys/net/netfilter/nf_conntrack_count</code></p>
+<p><strong>"How do I see what a process is doing?"</strong>
+→ <code>strace -c -p PID</code> for syscalls, <code>lsof -p PID</code> for files, <code>/proc/PID/status</code> for state</p>
+<p><strong>"Process won't respond to SIGTERM"</strong>
+→ Escalate to <code>kill -KILL PID</code>, unless D state (then fix I/O issue)</p>
+<p><strong>"Network is slow"</strong>
+→ Check with <code>ss -ti</code> for retransmissions and RTT, <code>iostat</code> for I/O wait</p>
+<p><strong>"Too many connections in TIME-WAIT"</strong>
+→ Normal for busy servers (2MSL timeout), tune <code>tcp_tw_reuse</code> if needed</p>
+<hr />
+<h2 id="final-tips">Final Tips</h2>
+<h3 id="what-interviewers-look-for">What Interviewers Look For</h3>
+<p><strong>1. Structured Thinking</strong></p>
+<ul>
+<li>Not jumping to conclusions</li>
+<li>Systematic elimination of causes</li>
+<li>Layer-by-layer approach</li>
+</ul>
+<p><strong>2. Practical Knowledge</strong></p>
+<ul>
+<li>Real commands, not just theory</li>
+<li>Understanding when to use which tool</li>
+<li>Edge cases and failure modes</li>
+</ul>
+<p><strong>3. Communication</strong></p>
+<ul>
+<li>Explaining thought process</li>
+<li>Acknowledging uncertainty</li>
+<li>Asking good questions</li>
+</ul>
+<p><strong>4. Operational Mindset</strong></p>
+<ul>
+<li>Impact on production</li>
+<li>Monitoring and prevention</li>
+<li>Automation opportunities</li>
+</ul>
+<h3 id="red-flags-to-avoid">Red Flags to Avoid</h3>
+<ul>
+<li>❌ Guessing without admitting uncertainty</li>
+<li>❌ Memorized answers without understanding</li>
+<li>❌ Ignoring edge cases</li>
+<li>❌ Forgetting to mention need for sudo/root</li>
+<li>❌ Vague answers ("check the logs" without specifics)</li>
+<li>❌ Immediate restart without investigation</li>
+</ul>
+<h3 id="green-flags-to-show">Green Flags to Show</h3>
+<ul>
+<li>✅ Structured troubleshooting approach</li>
+<li>✅ Multiple solution approaches</li>
+<li>✅ Awareness of trade-offs</li>
+<li>✅ Thinking about prevention</li>
+<li>✅ Clear communication</li>
+<li>✅ Honest about gaps in knowledge</li>
+</ul>
+<hr />
+<h2 id="good-luck">Good Luck!</h2>
+<p>Remember: This interview is about <strong>how you think</strong>, not just what you know.</p>
+<ul>
+<li>Stay calm and systematic</li>
+<li>Think out loud</li>
+<li>Ask clarifying questions</li>
+<li>Acknowledge when you're uncertain</li>
+<li>Show your reasoning process</li>
+</ul>
+<p>You've got this! 🚀</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.footnote.tooltips", "content.tabs.link", "content.tooltips", "header.autohide", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

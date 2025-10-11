@@ -58,6 +58,7 @@ nav:
     - Commands Reference: linux/commands-reference.md
     - Network Interfaces: linux/interfaces.md
     - Linux Troubleshooting: linux/linux-troubleshooting.md
+    - Linux Questions: linux/linux-questions.md
   - Behavioral: behavioral/index.md
     
 markdown_extensions:

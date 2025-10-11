@@ -463,6 +463,334 @@ ss -tuln
 
 Faster and more feature-rich than netstat.
 
+### Firewall Management
+
+#### iptables Commands
+
+iptables is the traditional Linux firewall management tool using netfilter.
+
+**List all rules:**
+
+```bash
+iptables -L                    # List all rules
+iptables -L -n                 # List with numeric output (no DNS)
+iptables -L -v                 # Verbose output with packet counts
+iptables -L -t nat             # List NAT table rules
+iptables -L -t mangle          # List mangle table rules
+```
+
+**Add rules:**
+
+```bash
+# Allow incoming SSH
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+# Allow HTTP and HTTPS
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+
+# Allow specific IP
+iptables -A INPUT -s 192.168.1.100 -j ACCEPT
+
+# Block specific IP
+iptables -A INPUT -s 192.168.1.200 -j DROP
+```
+
+**Insert rules at specific position:**
+
+```bash
+# Insert rule at position 1
+iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
+```
+
+**Delete rules:**
+
+```bash
+# Delete by rule specification
+iptables -D INPUT -p tcp --dport 80 -j ACCEPT
+
+# Delete by line number
+iptables -D INPUT 3
+```
+
+**Save and restore rules:**
+
+```bash
+# Save rules to file
+iptables-save > /etc/iptables/rules.v4
+
+# Restore rules from file
+iptables-restore < /etc/iptables/rules.v4
+```
+
+**Flush rules:**
+
+```bash
+iptables -F                    # Flush all rules
+iptables -F INPUT              # Flush INPUT chain
+iptables -X                    # Delete user-defined chains
+```
+
+**Set default policies:**
+
+```bash
+iptables -P INPUT DROP         # Drop all incoming by default
+iptables -P FORWARD DROP       # Drop all forwarded by default
+iptables -P OUTPUT ACCEPT      # Accept all outgoing by default
+```
+
+**NAT and forwarding:**
+
+```bash
+# Enable port forwarding
+iptables -t nat -A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+
+# Enable masquerading for NAT
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+```
+
+#### firewall-cmd Commands
+
+firewall-cmd is the management tool for firewalld (dynamic firewall on RHEL/CentOS/Fedora).
+
+**Check firewall status:**
+
+```bash
+firewall-cmd --state           # Check if firewalld is running
+systemctl status firewalld     # Detailed service status
+```
+
+**Zone management:**
+
+```bash
+# List zones
+firewall-cmd --get-zones
+firewall-cmd --get-active-zones
+firewall-cmd --get-default-zone
+
+# Set default zone
+firewall-cmd --set-default-zone=public
+
+# Add interface to zone
+firewall-cmd --zone=public --add-interface=eth0
+```
+
+**Service management:**
+
+```bash
+# List services
+firewall-cmd --list-services
+firewall-cmd --list-all
+
+# Add service temporarily (until reboot)
+firewall-cmd --add-service=http
+firewall-cmd --add-service=https
+
+# Add service permanently
+firewall-cmd --add-service=http --permanent
+firewall-cmd --add-service=https --permanent
+
+# Remove service
+firewall-cmd --remove-service=http --permanent
+```
+
+**Port management:**
+
+```bash
+# Add port
+firewall-cmd --add-port=8080/tcp
+firewall-cmd --add-port=8080/tcp --permanent
+
+# Add port range
+firewall-cmd --add-port=5000-5100/tcp --permanent
+
+# Remove port
+firewall-cmd --remove-port=8080/tcp --permanent
+
+# List ports
+firewall-cmd --list-ports
+```
+
+**Rich rules:**
+
+```bash
+# Allow specific IP to SSH
+firewall-cmd --add-rich-rule='rule family="ipv4" source address="192.168.1.100" service name="ssh" accept'
+
+# Block specific IP
+firewall-cmd --add-rich-rule='rule family="ipv4" source address="192.168.1.200" reject'
+
+# Rate limiting
+firewall-cmd --add-rich-rule='rule service name="ssh" accept limit value="10/m"'
+```
+
+**Port forwarding:**
+
+```bash
+# Forward port 80 to 8080
+firewall-cmd --add-forward-port=port=80:proto=tcp:toport=8080
+
+# Forward to different host
+firewall-cmd --add-forward-port=port=80:proto=tcp:toaddr=192.168.1.100:toport=8080
+```
+
+**Reload and apply changes:**
+
+```bash
+firewall-cmd --reload          # Reload firewall rules
+firewall-cmd --complete-reload # Complete reload (breaks connections)
+```
+
+**Panic mode:**
+
+```bash
+firewall-cmd --panic-on        # Enable panic mode (drop all traffic)
+firewall-cmd --panic-off       # Disable panic mode
+firewall-cmd --query-panic     # Check panic mode status
+```
+
+#### nmcli Commands
+
+nmcli is the command-line tool for NetworkManager.
+
+**General status:**
+
+```bash
+nmcli general status           # Show NetworkManager status
+nmcli general hostname         # Show hostname
+nmcli general hostname newname # Set hostname
+```
+
+**Connection management:**
+
+```bash
+# List connections
+nmcli connection show
+nmcli con show                 # Shorthand
+nmcli con show --active        # Show only active connections
+
+# Show connection details
+nmcli con show "Connection Name"
+
+# Activate/deactivate connection
+nmcli con up "Connection Name"
+nmcli con down "Connection Name"
+
+# Delete connection
+nmcli con delete "Connection Name"
+```
+
+**Device management:**
+
+```bash
+# List devices
+nmcli device status
+nmcli dev status               # Shorthand
+
+# Show device details
+nmcli dev show eth0
+
+# Connect/disconnect device
+nmcli dev connect eth0
+nmcli dev disconnect eth0
+```
+
+**Create connections:**
+
+```bash
+# Create ethernet connection with DHCP
+nmcli con add type ethernet con-name "my-eth" ifname eth0
+
+# Create ethernet connection with static IP
+nmcli con add type ethernet con-name "my-static" ifname eth0 \
+  ip4 192.168.1.100/24 gw4 192.168.1.1
+
+# Create Wi-Fi connection
+nmcli con add type wifi con-name "my-wifi" ifname wlan0 ssid "MyNetwork"
+
+# Create Wi-Fi with password
+nmcli con add type wifi con-name "my-wifi" ifname wlan0 ssid "MyNetwork" \
+  wifi-sec.key-mgmt wpa-psk wifi-sec.psk "password"
+```
+
+**Modify connections:**
+
+```bash
+# Set static IP
+nmcli con mod "my-eth" ipv4.addresses 192.168.1.100/24
+nmcli con mod "my-eth" ipv4.gateway 192.168.1.1
+nmcli con mod "my-eth" ipv4.dns "8.8.8.8 8.8.4.4"
+nmcli con mod "my-eth" ipv4.method manual
+
+# Switch to DHCP
+nmcli con mod "my-eth" ipv4.method auto
+
+# Add additional IP address
+nmcli con mod "my-eth" +ipv4.addresses 192.168.1.101/24
+
+# Remove IP address
+nmcli con mod "my-eth" -ipv4.addresses 192.168.1.101/24
+```
+
+**Wi-Fi specific:**
+
+```bash
+# List available Wi-Fi networks
+nmcli dev wifi list
+
+# Connect to Wi-Fi
+nmcli dev wifi connect "SSID" password "password"
+
+# Rescan Wi-Fi networks
+nmcli dev wifi rescan
+
+# Show Wi-Fi password
+nmcli dev wifi show-password
+```
+
+**DNS management:**
+
+```bash
+# Set DNS servers
+nmcli con mod "my-eth" ipv4.dns "8.8.8.8 8.8.4.4"
+
+# Add additional DNS server
+nmcli con mod "my-eth" +ipv4.dns "1.1.1.1"
+
+# Remove DNS server
+nmcli con mod "my-eth" -ipv4.dns "8.8.8.8"
+```
+
+**Reload and apply:**
+
+```bash
+# Reload configuration
+nmcli con reload
+
+# Reapply connection settings
+nmcli dev reapply eth0
+```
+
+**Interactive editor:**
+
+```bash
+# Edit connection interactively
+nmcli con edit "Connection Name"
+```
+
+**Example output formats:**
+
+```bash
+# Default output
+nmcli dev status
+
+# Terse output (one line per entry)
+nmcli -t dev status
+
+# Fields output (custom columns)
+nmcli -f DEVICE,STATE,CONNECTION dev status
+```
+
 ### Network Statistics
 
 #### `/proc/net/dev`

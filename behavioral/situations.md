@@ -285,65 +285,148 @@ You can expand this file by adding:
 
 ---
 
-🧠 Senior SRE Behavioral Additional Questions.
+## 🧠 Senior SRE Behavioral Additional Questions
 
-1. Incident Management & Reliability
+### 1. **Incident Management & Reliability**
    1. Tell me about a time when you handled a major production outage.
-      • What was your role?
-      • How did you prioritize actions and communicate during the incident?
+      - What was your role?
+      - How did you prioritize actions and communicate during the incident?
    2. Describe how you run a post-incident review (PIR).
-      • How do you ensure it’s blameless and results in actionable improvements?
+      - How do you ensure it's blameless and results in actionable improvements?
    3. Give an example of how you reduced MTTR (Mean Time to Recovery).
-      • What technical or process changes did you introduce?
+      - What technical or process changes did you introduce?
    4. How do you ensure that reliability goals (SLOs/SLIs/SLAs) are realistic and measurable?
-      • How do you handle pushback from product or leadership?
+      - How do you handle pushback from product or leadership?
 
-⸻
+---
 
-2. Systems Design for Reliability 5. Walk me through how you’d design a globally distributed service with 99.99% uptime.
-   • How do you handle active-active vs active-passive failover?
-   • How do you approach state replication and consistency? 6. Describe a time when you improved the scalability or resilience of a system.
-   • What was the bottleneck, and how did you identify it? 7. How would you approach chaos engineering in a production environment?
-   • What safeguards would you put in place?
+### 2. **Systems Design for Reliability**
+   1. Walk me through how you'd design a globally distributed service with 99.99% uptime.
+      - How do you handle active-active vs active-passive failover?
+      - How do you approach state replication and consistency?
+   2. Describe a time when you improved the scalability or resilience of a system.
+      - What was the bottleneck, and how did you identify it?
+   3. How would you approach chaos engineering in a production environment?
+      - What safeguards would you put in place?
 
-⸻
+---
 
-3. Monitoring, Observability, and Performance 8. Tell me about a time when observability gaps caused a production issue.
-   • How did you detect and fix it, and what metrics/logs/traces did you implement? 9. How do you define the right KPIs or dashboards for a new system?
-   • How do you ensure alerts are actionable and not noisy? 10. What’s your approach to capacity planning?
+### 3. **Monitoring, Observability, and Performance**
+   1. Tell me about a time when observability gaps caused a production issue.
+      - How did you detect and fix it, and what metrics/logs/traces did you implement?
+   2. How do you define the right KPIs or dashboards for a new system?
+      - How do you ensure alerts are actionable and not noisy?
+   3. What's your approach to capacity planning?
+      - How do you balance cost efficiency with performance and reliability?
 
-   • How do you balance cost efficiency with performance and reliability?
+---
 
-⸻
+### 4. **Automation, CI/CD, and Infrastructure**
+   1. Describe how you've implemented or improved CI/CD pipelines.
+      - How did you ensure safety (e.g., canary releases, rollbacks, Argo Rollouts)?
+   2. Tell me about a time when automation backfired.
+      - What did you learn, and how did you redesign the process?
+   3. How do you ensure infrastructure-as-code changes are tested, peer-reviewed, and safely deployed?
+      - (Think Terraform, Helm, ArgoCD, or CloudFormation.)
 
-4. Automation, CI/CD, and Infrastructure 11. Describe how you’ve implemented or improved CI/CD pipelines.
+---
 
-   • How did you ensure safety (e.g., canary releases, rollbacks, Argo Rollouts)?
+### 5. **Culture, Ownership, and Collaboration**
+   1. Describe a time you influenced engineering culture to improve reliability.
+      - How did you get buy-in from teams?
+      - What resistance did you face?
+   2. Tell me about a time you had to say "no" to a release or change due to risk.
+      - How did you communicate that decision to leadership?
 
-   12. Tell me about a time when automation backfired.
+---
 
-   • What did you learn, and how did you redesign the process?
+## 💡 Additional Behavioral Questions
 
-   13. How do you ensure infrastructure-as-code changes are tested, peer-reviewed, and safely deployed?
+### 6. **Technical Decision Making & Trade-offs**
+   1. Describe a time when you had to make a difficult technical decision with incomplete information.
+      - What was your thought process?
+      - How did you validate your decision afterward?
+   2. Tell me about a time when you disagreed with a technical approach proposed by a senior engineer or architect.
+      - How did you handle the disagreement?
+      - What was the outcome?
+   3. How do you prioritize competing reliability improvements when resources are limited?
+      - What framework do you use to evaluate ROI?
 
-   • (Think Terraform, Helm, ArgoCD, or CloudFormation.)
+### 7. **On-Call & Operational Excellence**
+   1. Describe your worst on-call experience.
+      - What did you learn from it?
+      - What changes did you implement afterward?
+   2. How do you reduce alert fatigue while maintaining system visibility?
+      - Give an example of refining an alerting strategy.
+   3. Tell me about a time when you improved on-call runbooks or playbooks.
+      - What was the impact on MTTR or team confidence?
 
-⸻
+### 8. **Cost Optimization & Efficiency**
+   1. Describe a time when you identified significant cost savings without impacting reliability.
+      - What was your approach to analysis and implementation?
+   2. How do you balance over-provisioning for reliability vs cost optimization?
+      - Give an example of finding the right balance.
+   3. Tell me about a time when you had to justify infrastructure costs to leadership.
+      - How did you communicate the value?
 
-5. Culture, Ownership, and Collaboration 14. Describe a time you influenced engineering culture to improve reliability.
+### 9. **Failure & Learning**
+   1. Tell me about a time when you made a mistake that caused a production issue.
+      - How did you handle it?
+      - What did you learn?
+   2. Describe a project or initiative that failed.
+      - What went wrong?
+      - How did you recover?
+   3. Tell me about a time when you didn't meet a reliability or performance goal.
+      - How did you communicate this to stakeholders?
+      - What corrective actions did you take?
 
-   • How did you get buy-in from teams?
-   • What resistance did you face?
+### 10. **Mentorship & Team Development**
+   1. Describe how you've mentored junior engineers on SRE best practices.
+      - What was your approach?
+      - What was the outcome?
+   2. Tell me about a time when you helped transform a team's operational maturity.
+      - What were the key challenges?
+      - What metrics showed improvement?
+   3. How do you share knowledge and build institutional memory in your team?
+      - Give specific examples of knowledge transfer initiatives.
 
-   15. Tell me about a time you had to say “no” to a release or change due to risk.
+### 11. **Vendor Management & External Dependencies**
+   1. Describe a time when a third-party service failure impacted your system.
+      - How did you mitigate the impact?
+      - What redundancy or resilience patterns did you implement?
+   2. How do you evaluate and select external tools or services for production use?
+      - What criteria do you use?
+   3. Tell me about a time when you had to escalate an issue with a vendor or cloud provider.
+      - How did you manage the relationship and communication?
 
-   • How did you communicate that decision to leadership?
+### 12. **Security & Compliance**
+   1. Describe how you've balanced security requirements with operational efficiency.
+      - Give an example of implementing security controls without breaking velocity.
+   2. Tell me about a time when you identified a security vulnerability in production.
+      - How did you handle the incident?
+      - What preventive measures did you put in place?
+   3. How do you approach compliance requirements (SOC2, ISO, HIPAA, etc.) in SRE work?
+      - Give an example of implementing compliance controls.
 
-⸻
+### 13. **Innovation & Continuous Improvement**
+   1. Tell me about a time when you introduced a new technology or practice to improve reliability.
+      - How did you research and evaluate it?
+      - How did you get buy-in?
+   2. Describe a process or workflow you completely reimagined.
+      - What was broken about the old way?
+      - What was the impact of the change?
+   3. How do you stay current with SRE trends and best practices?
+      - Give an example of applying something new you learned.
 
-💡 Bonus Follow-ups to Expect
-• How do you balance speed vs reliability in release processes?
-• What’s your philosophy on toil reduction and engineering enablement?
-• How do you mentor or upskill junior engineers on operational excellence?
-• How would you handle an environment with no observability or chaos culture yet?
-• What’s your approach to handling a high-visibility incident (e.g., C-level visibility)?
+---
+
+## 💡 Bonus Follow-ups to Expect
+
+- How do you balance speed vs reliability in release processes?
+- What's your philosophy on toil reduction and engineering enablement?
+- How do you mentor or upskill junior engineers on operational excellence?
+- How would you handle an environment with no observability or chaos culture yet?
+- What's your approach to handling a high-visibility incident (e.g., C-level visibility)?
+- How do you measure and communicate the business value of reliability investments?
+- What's your approach to technical debt in production systems?
+- How do you handle conflicts between SRE principles and business pressure to ship faster?

@@ -2,6 +2,34 @@
 
 This guide provides essential Linux commands for system administration, monitoring, and troubleshooting with practical examples and output explanations.
 
+## Table of Contents
+
+- [Process and System Information](#process-and-system-information)
+  - [Process Information Commands](#process-information-commands)
+  - [Process Identification and Management](#process-identification-and-management)
+  - [System Information Commands](#system-information-commands)
+  - [File System Commands](#file-system-commands)
+- [Memory and Virtual Memory](#memory-and-virtual-memory)
+  - [Memory Statistics](#memory-statistics)
+  - [Process Memory Information](#process-memory-information)
+- [Network Internals](#network-internals)
+  - [Network Interface Commands](#network-interface-commands)
+  - [Firewall Management](#firewall-management)
+  - [Network Statistics](#network-statistics)
+- [File System and I/O](#file-system-and-io)
+  - [I/O Statistics](#io-statistics)
+  - [File System Information](#file-system-information)
+- [Process Tracing](#process-tracing)
+  - [System Call Tracing](#system-call-tracing)
+  - [Process Monitoring](#process-monitoring)
+- [Kernel and System Calls](#kernel-and-system-calls)
+  - [Kernel Modules](#kernel-modules)
+  - [System Information](#system-information)
+- [Container and Namespace Exploration](#container-and-namespace-exploration)
+  - [Namespace Information](#namespace-information)
+  - [Cgroup Information](#cgroup-information)
+- [Usage Tips](#usage-tips)
+
 ## Process and System Information
 
 ### Process Information Commands

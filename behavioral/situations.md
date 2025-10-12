@@ -1,8 +1,8 @@
-# NVIDIA Senior SRE — Behavioral & Situational Interview Practice
+# Senior SRE — Behavioral & Situational Interview Practice
 
 ## 🧭 Overview
 
-This document summarizes the behavioral mock interview session for a **Senior Site Reliability Engineer (SRE)** role at NVIDIA.  
+This document summarizes behavioral mock interview sessions for a **Senior Site Reliability Engineer (SRE)** role.  
 Each section includes:
 
 - The interview question(s)
@@ -265,23 +265,23 @@ Each section includes:
 
 ---
 
-## 🎯 Advanced NVIDIA-Specific Follow-Ups
+## 🎯 Advanced Follow-Up Questions
 
 1. How do you balance reliability with feature velocity?
 2. Describe a time observability misled you — how did you find the real issue?
 3. How do you ensure your SLOs truly reflect user experience?
-4. How do you approach capacity planning for GPU-intensive workloads?
+4. How do you approach capacity planning for resource-intensive workloads?
 5. Tell me about a time you influenced design direction without direct authority.
 6. How would you automate operational toil reduction across multiple services?
 
 ---
 
-**Next Step for You:**  
+**Next Steps:**
 You can expand this file by adding:
 
 - `STAR Details:` deeper notes on Situation, Task, Actions, and measurable Results.
 - `Strength Additions:` concrete metrics and leadership outcomes.
-- `Behavioral Patterns:` map each story to NVIDIA’s core competencies (technical excellence, collaboration, system design, and ownership).
+- `Behavioral Patterns:` map each story to core SRE competencies (technical excellence, collaboration, system design, and ownership).
 
 ---
 

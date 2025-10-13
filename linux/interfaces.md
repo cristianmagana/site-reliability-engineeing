@@ -40,6 +40,74 @@ Each running program, called a **process**, has memory containing instructions, 
 
 A process alternates between executing in **user space** and **kernel space**.
 
+## 🧵 Threads
+
+A **thread** is the smallest unit of execution within a process. While a process is an independent program with its own memory space, threads are lightweight execution units that share the same memory space within a process.
+
+### Key Characteristics
+
+- **Shared Memory**: All threads within a process share the same address space, including code, data, and heap
+- **Private Stack**: Each thread has its own stack and registers (including program counter)
+- **Lightweight**: Thread creation and context switching is faster than process creation
+- **Concurrency**: Multiple threads can execute simultaneously on multi-core systems
+
+### Thread vs Process
+
+| Aspect | 🔄 Process | 🧵 Thread |
+|--------|-----------|----------|
+| **Memory Space** | Independent | Shared within process |
+| **Creation Cost** | High (fork overhead) | Low |
+| **Context Switch** | Expensive | Cheaper |
+| **Communication** | IPC (pipes, sockets) | Shared memory (direct) |
+| **Isolation** | Strong (separate memory) | Weak (shared memory) |
+
+### Threading Models
+
+**1. User-Level Threads (Many-to-One)**
+- Managed entirely in user space
+- Fast creation and switching
+- Cannot take advantage of multi-core CPUs
+- Blocking syscall blocks entire process
+
+**2. Kernel-Level Threads (One-to-One)**
+- Each user thread maps to a kernel thread
+- True parallelism on multi-core systems
+- Higher overhead for creation/switching
+- Linux uses this model (NPTL - Native POSIX Thread Library)
+
+**3. Hybrid Model (Many-to-Many)**
+- Multiplexes many user threads onto smaller number of kernel threads
+- Combines benefits of both approaches
+
+### Thread System Calls
+
+| System Call | 🔍 Description |
+|-------------|----------------|
+| `clone()` | 🧬 Create a new thread (low-level, used by pthread) |
+| `pthread_create()` | ✨ Create a new thread (POSIX API) |
+| `pthread_join()` | 🤝 Wait for a thread to terminate |
+| `pthread_exit()` | 🚪 Terminate the calling thread |
+| `pthread_self()` | 🆔 Return the thread ID of calling thread |
+| `pthread_detach()` | 🔓 Mark thread as detached (resources freed on exit) |
+| `pthread_mutex_lock()` | 🔒 Acquire a mutex lock |
+| `pthread_mutex_unlock()` | 🔓 Release a mutex lock |
+| `pthread_cond_wait()` | ⏸️ Wait on a condition variable |
+| `pthread_cond_signal()` | 📢 Signal a condition variable |
+
+### Synchronization Primitives
+
+Since threads share memory, synchronization is critical to prevent race conditions:
+
+- **Mutexes** 🔒: Mutual exclusion locks to protect critical sections
+- **Semaphores** 🚦: Counter-based synchronization mechanism
+- **Condition Variables** 📢: Allow threads to wait for specific conditions
+- **Read-Write Locks** 📖✍️: Allow multiple readers or single writer
+- **Barriers** 🚧: Synchronization point for multiple threads
+
+### Thread-Local Storage (TLS)
+
+Each thread can have its own private data using thread-local storage, which appears global within the thread but is actually unique per thread.
+
 ## 📞 System Calls
 
 When a process needs to invoke a kernel service, it invokes a procedure call in the operating system interface. The system call enters the kernel; the kernel performs the service and returns.

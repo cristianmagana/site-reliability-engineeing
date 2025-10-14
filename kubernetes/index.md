@@ -104,6 +104,19 @@
   - **Docker Engine** (via cri-dockerd shim, deprecated path)
 - Responsible for pulling images, running containers, managing container lifecycle
 
+#### Container Network Interface (CNI)
+- Must implement CNI (Container Network Interface) specification
+- Responsible for pod networking: IP allocation, routing, network policies
+- Common CNI plugins:
+  - **Calico**: BGP-based routing, supports network policies, L3/L4/L7 security
+  - **Flannel**: Simple overlay network using VXLAN, easy to set up
+  - **Cilium**: eBPF-based, high performance, L7 visibility and policies
+  - **Weave**: Mesh networking with built-in service discovery
+- CNI configuration stored in `/etc/cni/net.d/`
+- CNI plugin binaries located in `/opt/cni/bin/`
+- Invoked by container runtime during pod sandbox creation
+- Handles: veth pair creation, IP assignment (IPAM), routing setup, policy enforcement
+
 ---
 
 ## 2. Complete Pod Lifecycle - Deployment to Traffic

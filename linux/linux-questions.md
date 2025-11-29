@@ -1,23 +1,22 @@
-# MongoDB SRE Interview - Complete Study Guide
+# Linux SRE - Complete Study Guide
 
 ## Table of Contents
 
-1. [Interview Overview](#interview-overview)
+1. [Guide Overview](#guide-overview)
 2. [Linux Fundamentals](#linux-fundamentals)
 3. [Networking Fundamentals](#networking-fundamentals)
 4. [Troubleshooting Scenarios](#troubleshooting-scenarios)
 5. [Essential Commands Reference](#essential-commands-reference)
-6. [Common Interview Traps](#common-interview-traps)
-7. [Communication Tips](#communication-tips)
+6. [Operational Communication](#operational-communication)
 
 ---
 
-## Interview Overview
+## Guide Overview
 
-### Format (60 minutes)
+### Core Domains
 
-- **Coding (30 min)**: Language-agnostic practical problems
-- **Linux/Networking (30 min)**: Q&A focused on conceptual understanding
+- **Coding & Automation**: Language-agnostic practical problems
+- **Linux & Networking**: Deep dive into conceptual understanding and troubleshooting
 
 ### Linux/Networking Focus
 
@@ -1889,55 +1888,27 @@ journalctl -xe                   # System logs
 systemctl status service         # Service status
 ```
 
----
 
-## Common Interview Traps
-
-### ❌ Avoid These Mistakes
-
-**Trap 1: "I'd restart the server"**
-
-- ✅ Better: Show systematic troubleshooting first
-
-**Trap 2: Wrong signals**
-
-- ❌ "SIGINT pauses processes"
-- ✅ SIGSTOP/SIGTSTP pause; SIGINT terminates
-
-**Trap 3: Vague answers**
-
-- ❌ "I'd check the logs"
-- ✅ "I'd check application logs with `journalctl -u service -f` and kernel messages with `dmesg`"
-
-**Trap 4: Forgetting permissions**
-
-- Many commands need sudo: ss -p, lsof, strace, tcpdump
-- Mention this in answers
-
-**Trap 5: Tool confusion**
-
-- ❌ "netstat is better than ss"
-- ✅ ss is faster and more powerful
 
 ---
 
-## Communication Tips
+## Operational Communication
 
-### Structure Your Answers
+### Structure Your Analysis
 
-1. **Acknowledge:** "That's a good question about..."
-2. **State approach:** "I'd begin by checking..."
+1. **Acknowledge:** "I am investigating the issue regarding..."
+2. **State approach:** "I'll begin by checking..."
 3. **Show systematic thinking:** "First... then... finally..."
 4. **Mention trade-offs:** "This approach is fast but less detailed"
-5. **Admit uncertainty:** "I'm not certain, but I believe..." is better than guessing
+5. **Admit uncertainty:** "I'm not certain, but based on X, I suspect..."
 
-### Think Out Loud
+### Document Your Thinking
 
 - "I'm considering whether this is a network or application issue..."
 - "Let me work through the TCP state machine..."
-- "That's interesting, I haven't seen this exact scenario, but I'd approach it by..."
+- "I haven't seen this exact scenario, but I'd approach it by..."
 
-### Ask Clarifying Questions
+### Gather Context
 
 - "Is this a production system where I need to avoid service disruption?"
 - "Do I have root access?"
@@ -2089,11 +2060,11 @@ Expected answer: Layer-by-layer network troubleshooting
 
 ---
 
-## MongoDB-Specific Context
+## Engineering Principles
 
-### What MongoDB Values
+### Core Engineering Values
 
-Based on their engineering principles:
+Based on standard SRE engineering principles:
 
 **1. Resilience**
 
@@ -2114,7 +2085,7 @@ Based on their engineering principles:
 - Root cause analysis
 - Reproducible investigations
 
-### During Interview
+### Operational Mindset
 
 **Show operational thinking:**
 
@@ -2136,23 +2107,23 @@ Based on their engineering principles:
 
 ---
 
-## Day-Before Checklist
+## Operational Readiness
 
-### Mental Preparation
+### Mindset
 
 **Remember:**
 
-- Partial answers with reasoning > wrong confident answers
+- Partial analysis with reasoning > confident but incorrect assumptions
 - It's OK to say "I'm not sure, but here's how I'd investigate..."
-- Think out loud - interviewers want to see your process
-- Ask clarifying questions - shows thoroughness
+- Document your thinking - transparency allows for collaboration
+- Gather context - shows thoroughness
 - Communication matters as much as technical knowledge
 
-**Get Good Sleep:**
+**Maintain Clarity:**
 
-- This interview rewards clear thinking over memorization
+- SRE roles reward clear thinking over memorization
 - Being well-rested helps with systematic reasoning
-- Don't cram the night before
+- Continuous learning is key
 
 ---
 
@@ -2218,9 +2189,9 @@ vmstat 1
 
 ---
 
-## Final Tips
+## Competency Framework
 
-### What Interviewers Look For
+### Key Competencies
 
 **1. Structured Thinking**
 
@@ -2246,7 +2217,7 @@ vmstat 1
 - Monitoring and prevention
 - Automation opportunities
 
-### Red Flags to Avoid
+### Anti-Patterns to Avoid
 
 - ❌ Guessing without admitting uncertainty
 - ❌ Memorized answers without understanding
@@ -2255,7 +2226,7 @@ vmstat 1
 - ❌ Vague answers ("check the logs" without specifics)
 - ❌ Immediate restart without investigation
 
-### Green Flags to Show
+### Best Practices to Demonstrate
 
 - ✅ Structured troubleshooting approach
 - ✅ Multiple solution approaches
@@ -2266,14 +2237,12 @@ vmstat 1
 
 ---
 
-## Good Luck!
+## Closing Thoughts
 
-Remember: This interview is about **how you think**, not just what you know.
+Remember: SRE is about **how you think**, not just what you know.
 
 - Stay calm and systematic
-- Think out loud
-- Ask clarifying questions
+- Document your thinking
+- Gather context
 - Acknowledge when you're uncertain
 - Show your reasoning process
-
-You've got this! 🚀

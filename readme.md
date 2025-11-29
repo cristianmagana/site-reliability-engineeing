@@ -1,32 +1,32 @@
-# Site Reliability Engineering Interview Preparation
+# Site Reliability Engineering Knowledge Base
 
-A comprehensive guide for preparing for Site Reliability Engineering (SRE) interviews, covering behavioral questions, technical concepts, troubleshooting scenarios, and essential knowledge areas.
+A comprehensive guide for Site Reliability Engineering (SRE) concepts, covering behavioral principles, technical skills, troubleshooting scenarios, and essential knowledge areas.
 
 ## Overview
 
-This repository contains curated resources to help you prepare for SRE interviews at top tech companies. It includes:
+This repository contains curated resources to help you master SRE concepts and practices. It includes:
 
-- **Behavioral interview preparation** using the STAR method
+- **Behavioral principles** using the STAR method for effective communication
 - **Linux system administration** commands and troubleshooting guides
 - **Database concepts** and best practices
 - **SRE terminology** and key concepts
 - **Operational thinking frameworks** for teams
 
-Whether you're preparing for your first SRE role or advancing to a senior position, these materials will help you demonstrate technical expertise, problem-solving skills, and operational excellence.
+Whether you're building your foundation in SRE or refining your skills as a senior engineer, these materials will help you demonstrate technical expertise, problem-solving skills, and operational excellence.
 
 ## Table of Contents
 
-### Behavioral & Situational
+### Behavioral & Soft Skills
 
-- [Interview Preparation Guide](./behavioral/index.md) - STAR method, motivation, conflict resolution, and leadership questions
-- [Situational Interview Practice](./behavioral/situations.md) - Real-world scenarios with STAR breakdowns and follow-up questions
+- [Behavioral Principles Guide](./behavioral/index.md) - STAR method, motivation, conflict resolution, and leadership principles
+- [Real-world Scenarios](./behavioral/situations.md) - Real-world scenarios with STAR breakdowns and deep-dive considerations
 - [Operational Thinking for Teams](./behavioral/operational-thinking.md) - Customer-first mindset, decision-making frameworks, and team principles
 
 ### Technical Topics
 
 - [Linux Commands Reference](./linux/commands-reference.md) - Essential Linux commands with explanations
 - [Linux Interfaces](./linux/interfaces.md) - Network interfaces and configuration
-- [Linux Questions](./linux/linux-questions.md) - Common interview questions about Linux
+- [Linux Study Guide](./linux/linux-questions.md) - Common concepts and questions about Linux
 - [Linux Troubleshooting](./linux/linux-troubleshooting.md) - Systematic approach to diagnosing Linux issues
 
 ### Core Concepts
@@ -37,7 +37,7 @@ Whether you're preparing for your first SRE role or advancing to a senior positi
 ## Key Topics Covered
 
 ### Behavioral Skills
-- STAR method interview technique
+- STAR method communication technique
 - Conflict resolution and collaboration
 - Leadership and influence without authority
 - Incident management and communication
@@ -60,16 +60,16 @@ Whether you're preparing for your first SRE role or advancing to a senior positi
 
 ## How to Use This Repository
 
-1. **Start with behavioral preparation** - Review the STAR method and practice structuring your answers
+1. **Start with behavioral principles** - Review the STAR method and practice structuring your communication
 2. **Study technical fundamentals** - Go through Linux commands, troubleshooting guides, and key concepts
-3. **Practice real scenarios** - Use the situational interview practice to rehearse your responses
+3. **Analyze real scenarios** - Use the situational examples to refine your problem-solving approach
 4. **Review operational principles** - Understand team dynamics and decision-making frameworks
-5. **Customize your examples** - Adapt the scenarios to your own experience and practice delivering them
+5. **Customize your approach** - Adapt the scenarios to your own experience and practice applying them
 
 ## Contributing
 
-Feel free to submit pull requests to improve existing content or add new sections that would help SRE interview preparation.
+Feel free to submit pull requests to improve existing content or add new sections that would help the SRE community.
 
 ## License
 
-This repository is intended for educational purposes to help engineers prepare for SRE interviews.
+This repository is intended for educational purposes to help engineers master SRE concepts.

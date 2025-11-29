@@ -1566,9 +1566,7 @@ kubectl get nodes
 kubectl get pods --all-namespaces
 ```
 
----
-
-## Key Takeaways for SRE Interviews
+## Key Takeaways for SRE
 
 ### Critical paths to memorize:
 1. `/etc/kubernetes/pki/` - All certificates
@@ -1612,4 +1610,4 @@ kubectl get pods --all-namespaces
 
 **Document Version**: 1.0  
 **Last Updated**: 2025  
-**Author**: SRE Interview Preparation
+**Author**: SRE Knowledge Base

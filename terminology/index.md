@@ -82,7 +82,7 @@ Overhead refers to administrative and organizational work that is necessary for 
 - Documentation of team processes and runbooks
 
 **Hiring and Onboarding**:
-- Interview candidate screening and interviews
+- Candidate screening and selection
 - Writing job descriptions
 - Onboarding new team members
 - Mentoring and training
@@ -106,7 +106,7 @@ Overhead refers to administrative and organizational work that is necessary for 
 **Strategies to optimize overhead**:
 - **Meeting hygiene**: Clear agendas, time limits, required vs optional attendance
 - **Async communication**: Use documentation and written updates when possible
-- **Batching**: Consolidate similar overhead activities (all interviews on certain days)
+- **Batching**: Consolidate similar overhead activities (e.g., all meetings on certain days)
 - **Delegation**: Distribute overhead fairly across the team
 - **Regular audits**: Periodically review and eliminate low-value overhead
 

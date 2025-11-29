@@ -1,26 +1,26 @@
-# Senior SRE — Behavioral & Situational Interview Practice
+# Senior SRE — Behavioral & Situational Scenarios
 
 ## 🧭 Overview
 
-This document summarizes behavioral mock interview sessions for a **Senior Site Reliability Engineer (SRE)** role.  
+This document summarizes behavioral scenarios and case studies for a **Senior Site Reliability Engineer (SRE)** role.
 Each section includes:
 
-- The interview question(s)
+- The scenario prompt
 - The story or topic discussed
 - A STAR method breakdown
 - Points covered
 - Additional suggestions to strengthen the response
-- Potential follow-up questions
+- Deep dive considerations
 
 ---
 
 ## 🧩 Scenario 1 — Troubleshooting a Major Incident
 
-**Interview Question**
+**Scenario Prompt**
 
 > Tell me about a time when you had to troubleshoot a major incident.
 
-**Response Story**
+**Case Study Overview**
 
 - You described a production outage impacting key user services.
 - Began with DNS validation, moved through service health checks, and discovered the issue at the application port level.
@@ -48,7 +48,7 @@ Each section includes:
 - Include metrics like MTTR reduction, number of users affected, or service latency recovery.
 - Add a note on **preventive improvements** implemented afterward.
 
-**Potential Follow-Ups**
+**Deep Dive Considerations**
 
 - How did you communicate status updates during the incident?
 - How did you prevent recurrence of similar issues?
@@ -57,11 +57,11 @@ Each section includes:
 
 ## ⚙️ Scenario 2 — Improving Reliability or Performance
 
-**Interview Question**
+**Scenario Prompt**
 
 > Can you describe a time when you improved the reliability or performance of a service?
 
-**Response Story**
+**Case Study Overview**
 
 - Multi-region active-active architecture rollout to handle regional failures.
 - Introduced Prometheus-based observability for consistent metrics collection across regions.
@@ -90,7 +90,7 @@ Each section includes:
 - Add details on **team alignment** and how you influenced design adoption.
 - Discuss trade-offs (cost, latency, complexity).
 
-**Potential Follow-Ups**
+**Deep Dive Considerations**
 
 - What challenges did you face gaining buy-in for the multi-region setup?
 - How did you validate telemetry accuracy between regions?
@@ -99,11 +99,11 @@ Each section includes:
 
 ## 🤝 Scenario 3 — Coordinating Cross-Functional Teams
 
-**Interview Question**
+**Scenario Prompt**
 
 > How did you coordinate and align Dev, Ops, and Product teams during a large reliability initiative?
 
-**Response Story**
+**Case Study Overview**
 
 - Emphasized shared planning through sprint reviews and design reviews.
 - Involved platform/security early to prevent late blockers.
@@ -129,7 +129,7 @@ Each section includes:
 - Add an example of **turning resistance into support** (e.g., running pilots).
 - Highlight how you influenced **technical direction**, not just execution.
 
-**Potential Follow-Ups**
+**Deep Dive Considerations**
 
 - How did you handle pushback from skeptical engineers or managers?
 - How did you communicate project value to non-technical stakeholders?
@@ -138,11 +138,11 @@ Each section includes:
 
 ## 🚨 Scenario 4 — Managing a Significant Incident
 
-**Interview Question**
+**Scenario Prompt**
 
 > Describe a time when you managed a major incident and how you coordinated the response and communication.
 
-**Response Story**
+**Case Study Overview**
 
 - You set up a bridge channel for responders.
 - Assigned incident command roles (triage, communications, recovery).
@@ -170,7 +170,7 @@ Each section includes:
 - Include _emotional leadership_: how you kept the team calm and focused.
 - Describe automation added post-incident (alert refinement, runbook updates).
 
-**Potential Follow-Ups**
+**Deep Dive Considerations**
 
 - How do you ensure everyone stays informed but not overwhelmed?
 - How do you communicate with leadership during a live incident?
@@ -179,11 +179,11 @@ Each section includes:
 
 ## 📘 Scenario 5 — Learning from Incidents
 
-**Interview Question**
+**Scenario Prompt**
 
 > How did you ensure the team learned from this incident to prevent similar ones?
 
-**Response Story**
+**Case Study Overview**
 
 - Conducted **blameless postmortems**.
 - Captured root causes, contributing factors, and timeline.
@@ -207,7 +207,7 @@ Each section includes:
 - Add tangible improvements (e.g., chaos testing, automation).
 - Show tracking of action items over time (metrics-based improvements).
 
-**Potential Follow-Ups**
+**Deep Dive Considerations**
 
 - How do you balance blamelessness with accountability?
 - How do you prioritize postmortem action items?
@@ -216,11 +216,11 @@ Each section includes:
 
 ## 🧠 Scenario 6 — Managing Anxiety and Leadership Pressure
 
-**Interview Question**
+**Scenario Prompt**
 
 > What strategies did you use to manage anxieties or concerns from the team and leadership during incidents?
 
-**Response Story**
+**Case Study Overview**
 
 - Focused on **composure and empathy**.
 - Delivered short, consistent updates to leadership to reduce uncertainty.
@@ -247,7 +247,7 @@ Each section includes:
 - Add specific cadence and communication formats (e.g., Slack updates every 15 minutes).
 - Include how you **coached** others to lead during future incidents.
 
-**Potential Follow-Ups**
+**Deep Dive Considerations**
 
 - How do you maintain calm when the root cause is still unknown?
 - How do you communicate uncertainty to leadership?
@@ -265,7 +265,7 @@ Each section includes:
 
 ---
 
-## 🎯 Advanced Follow-Up Questions
+## 🎯 Advanced System Design & Reliability Scenarios
 
 1. How do you balance reliability with feature velocity?
 2. Describe a time observability misled you — how did you find the real issue?
@@ -285,7 +285,7 @@ You can expand this file by adding:
 
 ---
 
-## 🧠 Senior SRE Behavioral Additional Questions
+## 🧠 Senior SRE Additional Scenarios
 
 ### 1. **Incident Management & Reliability**
    1. Tell me about a time when you handled a major production outage.
@@ -340,7 +340,7 @@ You can expand this file by adding:
 
 ---
 
-## 💡 Additional Behavioral Questions
+## 💡 Additional Scenarios
 
 ### 6. **Technical Decision Making & Trade-offs**
    1. Describe a time when you had to make a difficult technical decision with incomplete information.
@@ -420,7 +420,7 @@ You can expand this file by adding:
 
 ---
 
-## 💡 Bonus Follow-ups to Expect
+## 💡 Strategic Considerations
 
 - How do you balance speed vs reliability in release processes?
 - What's your philosophy on toil reduction and engineering enablement?

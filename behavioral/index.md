@@ -172,6 +172,29 @@ Related Scenarios:
 
 <br>
 
+<details>
+
+<br>
+
+  <summary><b> Managing Team Conflict </b></summary>
+
+<b>Why this matters:</b> This is essential for leadership roles. It seeks to understand your strategy for maintaining a positive environment. It demonstrates your ability to handle disputes tactfully, identify issues early, and ensure long-term team cohesion.
+
+<b>Best practice approach:</b> Demonstrate a proactive and structured strategy. Key points to focus on:
+
+1. **Identification:** How you spot early signs of friction (e.g., reduced communication, passive-aggressiveness).
+2. **Resolution:** Your approach to mediation (e.g., private 1:1s, neutral ground, focusing on the problem not the person).
+3. **Restoration:** How you ensure relationships are repaired and the team moves forward smoothly.
+
+Related Scenarios:
+
+- How do you handle disputes between two team members? <br>
+- Describe a time you had to intervene in a heated technical debate. <br>
+
+</details>
+
+<br>
+
 > ### Leadership
 
 <br>
@@ -241,6 +264,113 @@ Related Scenarios:
 </details>
 
   <br>
+
+> ### Problem Solving
+
+<br>
+
+<details>
+
+<br>
+
+  <summary><b> Complex Technical Problem Solving </b></summary>
+
+<b>Why this matters:</b> This assesses your problem-solving skills in a dynamic and potentially stressful environment. It evaluates your methodology and thought process when facing ambiguity or pressure.
+
+<b>Best practice approach:</b> Focus on your structured approach to handling complexity. Key points to consider include:
+
+1. **Identifying the core problem:** Clarify the root cause before jumping to solutions.
+2. **Breaking it down:** Decompose the problem into manageable, independent components.
+3. **Collaboration:** Leverage team members and available resources effectively.
+4. **Implementation with trade-offs:** Deliver a solution while balancing speed, quality, and technical debt.
+5. **Reflection:** Review the results to drive future improvements and learning.
+
+Related Scenarios:
+
+- How do you handle tight deadlines while maintaining code quality? <br>
+- Describe a time you had to learn a new technology quickly to solve a problem. <br>
+
+</details>
+
+<br>
+
+<details>
+
+<br>
+
+  <summary><b> Approaching Unfamiliar Challenges </b></summary>
+
+<b>Why this matters:</b> This evaluates your adaptability, learning agility, and resourcefulness. In SRE, you will inevitably encounter legacy systems, new tools, or opaque errors you haven't seen before. Your ability to navigate the unknown is a key indicator of senior-level competency.
+
+<b>Best practice approach:</b> Highlight a balance between independent research and collaboration. Key elements:
+
+1.  **Initial Assessment:** How you scope the unknown (reading docs, checking logs, reproducing issues).
+2.  **Structured Research:** Mention consulting internal wikis, external documentation, or community resources.
+3.  **Time-Boxed Exploration:** Explain how you avoid "rabbit holes" by setting limits on solo research before escalating.
+4.  **Asking for Help:** Describe how you formulate high-quality questions (providing context, what you've tried) when seeking peer support.
+5.  **Iterative Learning:** Building a Proof of Concept (PoC) or "hello world" example to test assumptions safely.
+
+Related Scenarios:
+
+- Describe a time you had to debug a system written in a language you didn't know. <br>
+- How do you ramp up on a new codebase or infrastructure stack? <br>
+
+</details>
+
+<br>
+
+<details>
+
+<br>
+
+  <summary><b> Adapting Technical Strategy </b></summary>
+
+<b>Why this matters:</b> Projects rarely go exactly to plan. This assesses your flexibility, resilience, and decision-making skills when assumptions change. It shows whether you cling to a plan or pivot effectively to meet business goals.
+
+<b>Best practice approach:</b> Demonstrate a composed and analytical response to change. Key steps:
+
+1.  **Impact Assessment:** Quickly evaluate how the change affects the timeline, scope, and resources.
+2.  **Re-evaluating Trade-offs:** Explain how you decided on the new path (e.g., cutting features, changing architecture, or accepting technical debt).
+3.  **Communication:** How you kept stakeholders informed and managed expectations.
+4.  **Execution:** The steps you took to implement the new strategy efficiently.
+
+Related Scenarios:
+
+- Tell me about a time requirements changed mid-project. <br>
+- Describe a situation where a technical dependency failed and you had to pivot. <br>
+
+</details>
+
+<br>
+
+> ### Time Management
+
+<br>
+
+<details>
+
+<br>
+
+  <summary><b> Managing Multiple Projects </b></summary>
+
+<b>Why this matters:</b> This evaluates how you handle competing priorities and resource constraints. In fast-paced, results-oriented environments, the ability to maintain high-quality output across multiple streams of work is critical.
+
+<b>Best practice approach:</b> Focus on your systematic approach to prioritization and execution. Key elements to include:
+
+1. **Prioritization Frameworks:** Explain how you distinguish between urgency and importance (e.g., Eisenhower Matrix) and how you align with business goals.
+2. **Tooling & Organization:** Mention specific tools or systems you use to track progress and minimize context-switching costs.
+3. **Techniques:** Discuss strategies like time-blocking, delegation, or setting interim deadlines to remain organized.
+4. **Proven Execution:** Provide examples of successfully delivering on multiple fronts without dropping the ball.
+
+Related Scenarios:
+
+- Tell me about a time you felt overwhelmed by your workload. <br>
+- How do you decide what to work on when everything seems like a priority? <br>
+- Describe a time you had to adjust your schedule due to unforeseen circumstances. <br>
+
+</details>
+
+<br>
 
 > ### Sample behavioral scenarios
 

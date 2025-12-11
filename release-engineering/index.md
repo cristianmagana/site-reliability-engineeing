@@ -120,7 +120,20 @@ Knowing what's happening during rollouts. Covers:
 
 **Key Concepts**: Data-driven decisions, signal vs. noise, correlation vs. causation
 
-### 10. [Automated Rollback & Circuit Breakers](./automated-rollback.md)
+### 10. [Validation Frameworks](./validation-frameworks.md)
+Proving deployments work before, during, and after rollout. Covers:
+- **The validation problem**: Why testing isn't enough, confidence gap, production reality
+- **Three validation horizons**: Pre-deployment, during deployment, post-deployment
+- **Validation architecture patterns**: Fail-fast pipelines, validation services, shadow traffic
+- **Validation metrics**: Golden signals, RED method, business metrics, data quality
+- **Integration with deployment strategies**: Canaries, blue/green, feature flags
+- **Progressive validation gates**: Stage-specific criteria, statistical significance
+- **Continuous validation**: Synthetic monitoring, chaos engineering, invariant checking
+- **Automated decision-making**: When to rollback, when to promote
+
+**Key Concepts**: Risk quantification, confidence ladder, observability-validation loop, progressive confidence
+
+### 11. [Automated Rollback & Circuit Breakers](./automated-rollback.md)
 Failing safely and automatically. Covers:
 - **Health checks**: Liveness, readiness, startup probes
 - **Circuit breaker pattern**: Fail fast, prevent cascading failures
@@ -133,7 +146,7 @@ Failing safely and automatically. Covers:
 
 **Key Concepts**: Defensive deployment, fail-safe mechanisms, observability-driven automation
 
-### 11. [Release Orchestration & Coordination](./release-orchestration.md)
+### 12. [Release Orchestration & Coordination](./release-orchestration.md)
 Managing complex, multi-service releases. Covers:
 - **Service dependencies**: DAG of deployment order
 - **Database migrations**: Schema changes, backward compatibility, dual-write patterns
@@ -181,6 +194,58 @@ Production Deployment
 ├── Observability-driven gates (error rates, latency)
 └── Automated rollback on metric deviation
 ```
+
+### Release Pipeline Structure
+
+**End-to-End Pipeline Architecture** (GitFlow-based workflow):
+
+```
+┌─────────────┐
+│  Developer  │
+│   Commit    │
+└──────┬──────┘
+       │
+       v
+┌─────────────────────────────────────┐
+│   Feature Branch / develop          │
+│   - Unit tests                      │
+│   - Linting                         │
+│   - Code coverage                   │
+└──────┬──────────────────────────────┘
+       │ PR Merge
+       v
+┌─────────────────────────────────────┐
+│   Release Branch (release/v1.3.0)   │
+│   - Integration tests               │
+│   - Build artifacts                 │
+│   - Container images                │
+│   - Security scanning               │
+└──────┬──────────────────────────────┘
+       │ Tag Created
+       v
+┌─────────────────────────────────────┐
+│   Tag (v1.3.0-rc.1)                 │
+│   - Deploy to staging               │
+│   - Smoke tests                     │
+│   - Performance tests               │
+│   - Manual QA gate                  │
+└──────┬──────────────────────────────┘
+       │ Approval
+       v
+┌─────────────────────────────────────┐
+│   Production Tag (v1.3.0)           │
+│   - Canary deployment               │
+│   - Progressive rollout             │
+│   - Monitoring/alerting             │
+│   - Automatic rollback triggers     │
+└─────────────────────────────────────┘
+```
+
+**Key stages**:
+- **Feature/develop**: Fast feedback (unit tests, linting, coverage)
+- **Release branch**: Integration validation, artifact creation
+- **RC tag**: Staging deployment, comprehensive testing, manual gates
+- **Production tag**: Progressive rollout with automated validation
 
 ## Designing a Release Pipeline
 

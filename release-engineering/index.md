@@ -133,7 +133,19 @@ Proving deployments work before, during, and after rollout. Covers:
 
 **Key Concepts**: Risk quantification, confidence ladder, observability-validation loop, progressive confidence
 
-### 11. [Automated Rollback & Circuit Breakers](./automated-rollback.md)
+### 11. [Performance Validation](./performance-validation.md)
+Testing and observing system performance with statistical rigor. Covers:
+- **First principles**: Performance as distribution, measurement overhead, context-dependency
+- **Go performance testing**: Benchmarking with testing.B, profiling (CPU, memory, trace), goroutine leak detection
+- **Statistical comparison**: benchstat for significance testing, avoiding false positives
+- **CI/CD integration**: Baseline establishment, regression gates, dealing with environmental noise
+- **Load testing**: Types (baseline, stress, soak, spike), tools (vegeta, k6), capacity validation
+- **Performance observability**: RED metrics, runtime metrics, continuous profiling, SLO alerting
+- **Validation patterns**: Performance budgets, canary analysis, regression test suites
+
+**Key Concepts**: Statistical rigor, performance budgets, progressive validation, instrumentation-first
+
+### 12. [Automated Rollback & Circuit Breakers](./automated-rollback.md)
 Failing safely and automatically. Covers:
 - **Health checks**: Liveness, readiness, startup probes
 - **Circuit breaker pattern**: Fail fast, prevent cascading failures
@@ -146,7 +158,7 @@ Failing safely and automatically. Covers:
 
 **Key Concepts**: Defensive deployment, fail-safe mechanisms, observability-driven automation
 
-### 12. [Release Orchestration & Coordination](./release-orchestration.md)
+### 13. [Release Orchestration & Coordination](./release-orchestration.md)
 Managing complex, multi-service releases. Covers:
 - **Service dependencies**: DAG of deployment order
 - **Database migrations**: Schema changes, backward compatibility, dual-write patterns

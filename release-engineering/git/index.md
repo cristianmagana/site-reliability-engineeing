@@ -74,6 +74,19 @@ Topics:
 
 **When to read**: When you want to go deeper or prepare for architect-level discussions.
 
+### 5. [Build Systems and Composition](./build-systems-and-composition.md)
+**Orchestrating builds and managing multi-repo systems**
+
+Topics:
+- **Make fundamentals**: Build graphs, dependency ordering, parallel builds
+- **Makefile patterns**: CI/CD integration, Docker orchestration, self-documenting targets
+- **Git submodules deep dive**: Creating, distributed workflows, CI/CD integration
+- **Distributed team patterns**: Multi-repo microservices, library versioning, sparse checkout
+- **Git subtrees and overlays**: Vendoring strategies, overlay filesystems, worktree patterns
+- **Real-world composition**: Microservices with shared libs, build orchestration, multi-version support
+
+**When to read**: When you need to build multi-component systems, manage dependencies across repos, or coordinate distributed teams.
+
 ---
 
 ## How to Use This Section
@@ -121,11 +134,19 @@ Git is not just version control - it's the foundation of your release pipeline:
 - Rollbacks → deploy previous tag
 - Audit trails → clean commit history
 
+**Build Systems** ↔ **Multi-Repo Coordination**:
+- Build orchestration → Make targets
+- Dependency management → Git submodules
+- Parallel development → Git worktrees
+- Versioned composition → Submodule pinning
+- CI/CD interface → Makefile targets
+
 **Operational Excellence** ↔ **Git Practices**:
 - Fast incident response → clean, bisectable history
 - Easy rollbacks → semantic commits
 - Clear audit trail → good commit messages
 - Hotfix propagation → cherry-pick strategy
+- Distributed teams → submodule workflows
 
 ---
 
@@ -155,6 +176,9 @@ After completing this section, you should be able to:
 - [ ] Use git bisect to find regressions
 - [ ] Choose appropriate merge strategies for different contexts
 - [ ] Configure Git for team consistency
+- [ ] Write Makefiles to orchestrate multi-component builds
+- [ ] Set up and manage Git submodules for distributed teams
+- [ ] Use Git worktrees for parallel development contexts
 
 ### Interview Skills
 - [ ] Articulate trade-offs between merge strategies
@@ -162,6 +186,9 @@ After completing this section, you should be able to:
 - [ ] Explain how Git choices affect operational work (debugging, hotfixes)
 - [ ] Discuss Git in the context of release engineering, not just "version control"
 - [ ] Tell stories about using Git to solve production problems
+- [ ] Compare submodules vs subtrees vs package managers for dependency management
+- [ ] Explain when to use Make vs language-specific build tools
+- [ ] Describe distributed team workflows with multi-repo systems
 
 ### Mental Models
 - [ ] Git as content-addressed filesystem (not diff storage)
@@ -169,6 +196,9 @@ After completing this section, you should be able to:
 - [ ] Rebase rewrites history (creates new commits)
 - [ ] Clean history enables better operations
 - [ ] Git is infrastructure, not just developer tool
+- [ ] Make as build graph solver (language-agnostic orchestration)
+- [ ] Submodules as versioned composition (explicit dependency control)
+- [ ] Worktrees enable parallel contexts without overhead
 
 ---
 
